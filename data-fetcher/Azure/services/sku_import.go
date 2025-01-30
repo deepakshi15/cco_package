@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"time"
 
-	"cco_backend/config"
-	"cco_backend/models"
-	"cco_backend/utils"
+	"data-fetcher/Azure/config"
+	"data-fetcher/Azure/models"
+	"data-fetcher/Azure/utils"
 	"github.com/joho/godotenv"
 )
 

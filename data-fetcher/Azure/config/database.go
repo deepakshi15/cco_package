@@ -6,7 +6,7 @@ import (
 	"gorm.io/driver/postgres" //PostgreSQL driver for GORM, used to interact with PostgreSQL databases
 	"gorm.io/gorm"            //core GORM package that provides the ORM functionality
 
-	"cco_backend/models" // Import your models package
+	"data-fetcher/Azure/models" // Import your models package
 )
 
 var DB *gorm.DB

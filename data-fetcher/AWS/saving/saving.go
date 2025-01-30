@@ -1,10 +1,11 @@
 package saving
+
 import (
 	"encoding/json"
 	"log"
 	"os"
 	"gorm.io/gorm"
-	"project/models"
+	"data-fetcher/AWS/models"
 )
 
 func ProcessVersionFile(db *gorm.DB, filepath string, regionID uint) error {

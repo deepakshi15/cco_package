@@ -1,9 +1,9 @@
 package services
 
 import (
-	"cco_backend/config"
-	"cco_backend/models"
-	"cco_backend/utils"
+	"data-fetcher/Azure/config"
+	"data-fetcher/Azure/models"
+	"data-fetcher/Azure/utils"
 	"fmt"
 	"log"
 	"strings"

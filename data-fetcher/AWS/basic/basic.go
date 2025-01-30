@@ -6,9 +6,8 @@ import (
 	"os"
 	"strconv"
 	"gorm.io/gorm"
-	"project/models"
-	"project/utils"
-	
+	"data-fetcher/AWS/models"
+    "data-fetcher/AWS/utils"
 )
 func ProcessCurrentVersionFile(db *gorm.DB, filepath string, regionID uint) {
 	file, err := os.Open(filepath)

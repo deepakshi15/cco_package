@@ -1,7 +1,8 @@
 package track
+
 import (
 	"encoding/json"
-	"project/models"
+	"data-fetcher/AWS/models"
 	"os"
 	"fmt"
 	"gorm.io/gorm"

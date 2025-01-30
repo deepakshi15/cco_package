@@ -1,22 +1,22 @@
-package main
+package AWS
 
 import (
 	"encoding/json"
-	"log"
-	"os"
-	"path/filepath"
-	"project/basic"
-	"project/config"
-	"project/models"
-	"project/saving"
-	"project/utils"
-	"project/track"
-	"fmt"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
+    "log"
+    "os"
+    "path/filepath"
+    "data-fetcher/AWS/basic"
+    "data-fetcher/AWS/config"
+    "data-fetcher/AWS/models"
+    "data-fetcher/AWS/saving"
+    "data-fetcher/AWS/track"
+    "data-fetcher/AWS/utils"
+    "fmt"
+    "gorm.io/driver/postgres"
+    "gorm.io/gorm"
 )
 
-func main() {
+func RunAWS() {
 	// Step 1: Initialize the Database Connection
 	db, err := gorm.Open(postgres.Open(config.DbConnStr), &gorm.Config{})
 	if err != nil {

@@ -1,21 +1,21 @@
-package main
+package Azure
 
 import (
 	"log"
-	"cco_backend/config"
-	"cco_backend/services"
+    "data-fetcher/Azure/config"
+    "data-fetcher/Azure/services"
 )
 
-func main() {
+func RunAzure() {
 	// Initialize the database
 	config.ConnectDatabase()
 
 	// Import data from Azure VM API
-	// if err := services.ImportData(); err != nil {
-	// 	log.Fatalf("Error importing Azure VM data: %v", err)
-	// } else {
-	// 	log.Println("Azure VM data import completed successfully.")
-	// }
+	if err := services.ImportData(); err != nil {
+		log.Fatalf("Error importing Azure VM data: %v", err)
+	} else {
+		log.Println("Azure VM data import completed successfully.")
+	}
 
 	// Import SKU data
 	// if err := services.ImportSkuData(); err != nil { 

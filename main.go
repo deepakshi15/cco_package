@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/robfig/cron/v3"
-	"cco_package/data-fetcher"
+	"cco-package/fetcher"
 	"cco-package/updatedatabase"
 )
 
@@ -43,7 +43,7 @@ func executeWithRetry(task func() error, taskName string) {
 
 // Wrappers to convert functions to return an error
 func awsTask() error {
-	err := dataFetcher.DataFetcher() // Ensure aws.Aws() returns an error
+	err := fetcher.Fetcher() // Ensure aws.Aws() returns an error
 	if err != nil {
 		return err
 	}

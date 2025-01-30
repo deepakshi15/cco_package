@@ -3,9 +3,9 @@ package services
 import (
 	"fmt"
 	"log"
-	"data-fetcher/Azure/config"
-    "data-fetcher/Azure/utils"
-	"data-fetcher/Azure/models"
+	"cco-package/fetcher/config"
+    "cco-package/fetcher/Azure/utils"
+	"cco-package/fetcher/Azure/models"
 )
 
 func ImportData() error { // fetch and import price data from API

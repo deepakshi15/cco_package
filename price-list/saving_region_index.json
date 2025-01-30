@@ -1,0 +1,300 @@
+{
+  "disclaimer" : "This pricing list is for informational purposes only. All prices are subject to the additional terms included in the pricing pages on http://aws.amazon.com. All Free Tier prices are also subject to the terms included at https://aws.amazon.com/free/",
+  "publicationDate" : "2025-01-28T20:14:08Z",
+  "regions" : [ {
+    "regionCode" : "us-west-2-den-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-den-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-phl-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-phl-1/index.json"
+  }, {
+    "regionCode" : "ap-southeast-2-akl-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-2-akl-1/index.json"
+  }, {
+    "regionCode" : "us-west-2-phx-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-phx-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-chi1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-chi1/index.json"
+  }, {
+    "regionCode" : "us-west-2-sea-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-sea-1/index.json"
+  }, {
+    "regionCode" : "eu-west-2-wl1-man1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-west-2-wl1-man1/index.json"
+  }, {
+    "regionCode" : "us-west-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-1/index.json"
+  }, {
+    "regionCode" : "us-west-2",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-msp1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-msp1/index.json"
+  }, {
+    "regionCode" : "us-west-2-wl1-lax1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-wl1-lax1/index.json"
+  }, {
+    "regionCode" : "eu-west-2-wl1-lon1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-west-2-wl1-lon1/index.json"
+  }, {
+    "regionCode" : "us-east-1-dfw-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-dfw-1/index.json"
+  }, {
+    "regionCode" : "us-west-2-las-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-las-1/index.json"
+  }, {
+    "regionCode" : "ap-southeast-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-1/index.json"
+  }, {
+    "regionCode" : "ap-southeast-2",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-2/index.json"
+  }, {
+    "regionCode" : "ap-southeast-3",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-3/index.json"
+  }, {
+    "regionCode" : "ap-northeast-1-tpe-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-northeast-1-tpe-1/index.json"
+  }, {
+    "regionCode" : "ap-southeast-4",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-4/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-iah1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-iah1/index.json"
+  }, {
+    "regionCode" : "ap-southeast-5",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-5/index.json"
+  }, {
+    "regionCode" : "ap-southeast-7",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-7/index.json"
+  }, {
+    "regionCode" : "eu-central-1-wl1-muc1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-central-1-wl1-muc1/index.json"
+  }, {
+    "regionCode" : "us-east-1-bue-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-bue-1/index.json"
+  }, {
+    "regionCode" : "ap-south-2",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-south-2/index.json"
+  }, {
+    "regionCode" : "us-east-1-iah-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-iah-1/index.json"
+  }, {
+    "regionCode" : "ap-northeast-2-wl1-cjj1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-northeast-2-wl1-cjj1/index.json"
+  }, {
+    "regionCode" : "us-east-1-msp-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-msp-1/index.json"
+  }, {
+    "regionCode" : "ap-south-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-south-1/index.json"
+  }, {
+    "regionCode" : "eu-south-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-south-1/index.json"
+  }, {
+    "regionCode" : "eu-south-2",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-south-2/index.json"
+  }, {
+    "regionCode" : "us-gov-east-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-gov-east-1/index.json"
+  }, {
+    "regionCode" : "us-west-2-wl1-las1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-wl1-las1/index.json"
+  }, {
+    "regionCode" : "il-central-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/il-central-1/index.json"
+  }, {
+    "regionCode" : "eu-central-1-wl1-dtm1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-central-1-wl1-dtm1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-atl1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-atl1/index.json"
+  }, {
+    "regionCode" : "mx-central-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/mx-central-1/index.json"
+  }, {
+    "regionCode" : "eu-north-1-hel-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-north-1-hel-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-mia-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-mia-1/index.json"
+  }, {
+    "regionCode" : "eu-west-3",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-west-3/index.json"
+  }, {
+    "regionCode" : "eu-west-2",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-west-2/index.json"
+  }, {
+    "regionCode" : "eu-west-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-west-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-chi-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-chi-1/index.json"
+  }, {
+    "regionCode" : "ap-east-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-east-1/index.json"
+  }, {
+    "regionCode" : "af-south-1-los-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/af-south-1-los-1/index.json"
+  }, {
+    "regionCode" : "ap-south-1-ccu-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-south-1-ccu-1/index.json"
+  }, {
+    "regionCode" : "us-gov-west-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-gov-west-1/index.json"
+  }, {
+    "regionCode" : "ap-northeast-1-wl1-nrt1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-northeast-1-wl1-nrt1/index.json"
+  }, {
+    "regionCode" : "me-south-1-mct-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/me-south-1-mct-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-qro-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-qro-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-dfw1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-dfw1/index.json"
+  }, {
+    "regionCode" : "us-east-1-scl-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-scl-1/index.json"
+  }, {
+    "regionCode" : "me-central-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/me-central-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-mia1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-mia1/index.json"
+  }, {
+    "regionCode" : "us-west-2-pdx-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-pdx-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-mci-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-mci-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-nyc-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-nyc-1/index.json"
+  }, {
+    "regionCode" : "eu-north-1-cph-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-north-1-cph-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-tpa1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-tpa1/index.json"
+  }, {
+    "regionCode" : "us-west-2-hnl-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-hnl-1/index.json"
+  }, {
+    "regionCode" : "af-south-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/af-south-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-clt1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-clt1/index.json"
+  }, {
+    "regionCode" : "ap-northeast-3",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-northeast-3/index.json"
+  }, {
+    "regionCode" : "ap-northeast-2",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-northeast-2/index.json"
+  }, {
+    "regionCode" : "ap-northeast-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-northeast-1/index.json"
+  }, {
+    "regionCode" : "me-south-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/me-south-1/index.json"
+  }, {
+    "regionCode" : "sa-east-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/sa-east-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-was1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-was1/index.json"
+  }, {
+    "regionCode" : "us-east-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1/index.json"
+  }, {
+    "regionCode" : "us-east-2",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-2/index.json"
+  }, {
+    "regionCode" : "us-west-2-wl1-den1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-wl1-den1/index.json"
+  }, {
+    "regionCode" : "ca-central-1-wl1-yto1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ca-central-1-wl1-yto1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1/index.json"
+  }, {
+    "regionCode" : "ap-northeast-1-wl1-kix1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-northeast-1-wl1-kix1/index.json"
+  }, {
+    "regionCode" : "us-east-1-atl-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-atl-1/index.json"
+  }, {
+    "regionCode" : "ca-central-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ca-central-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-nyc1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-nyc1/index.json"
+  }, {
+    "regionCode" : "us-east-1-lim-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-lim-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-bna1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-bna1/index.json"
+  }, {
+    "regionCode" : "eu-central-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-central-1/index.json"
+  }, {
+    "regionCode" : "eu-central-2",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-central-2/index.json"
+  }, {
+    "regionCode" : "ap-southeast-1-mnl-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-1-mnl-1/index.json"
+  }, {
+    "regionCode" : "ap-northeast-2-wl1-sel1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-northeast-2-wl1-sel1/index.json"
+  }, {
+    "regionCode" : "eu-north-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-north-1/index.json"
+  }, {
+    "regionCode" : "eu-central-1-wl1-ber1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-central-1-wl1-ber1/index.json"
+  }, {
+    "regionCode" : "us-west-2-wl1-phx1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-wl1-phx1/index.json"
+  }, {
+    "regionCode" : "ap-south-1-del-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-south-1-del-1/index.json"
+  }, {
+    "regionCode" : "us-east-1-wl1-dtw1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-wl1-dtw1/index.json"
+  }, {
+    "regionCode" : "us-west-2-lax-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-lax-1/index.json"
+  }, {
+    "regionCode" : "eu-west-2-wl2-man1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-west-2-wl2-man1/index.json"
+  }, {
+    "regionCode" : "eu-central-1-waw-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-central-1-waw-1/index.json"
+  }, {
+    "regionCode" : "us-west-2-wl1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-wl1/index.json"
+  }, {
+    "regionCode" : "us-east-1-bos-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-east-1-bos-1/index.json"
+  }, {
+    "regionCode" : "ca-west-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ca-west-1/index.json"
+  }, {
+    "regionCode" : "ap-southeast-2-per-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-2-per-1/index.json"
+  }, {
+    "regionCode" : "us-west-2-wl1-sea1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/us-west-2-wl1-sea1/index.json"
+  }, {
+    "regionCode" : "eu-central-1-ham-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/eu-central-1-ham-1/index.json"
+  }, {
+    "regionCode" : "ap-southeast-1-bkk-1",
+    "versionUrl" : "/savingsPlan/v1.0/aws/AWSComputeSavingsPlan/20250128201408/ap-southeast-1-bkk-1/index.json"
+  } ],
+  "formatVersion" : "v1.0"
+}

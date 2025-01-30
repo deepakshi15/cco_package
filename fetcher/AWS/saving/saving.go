@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 	"gorm.io/gorm"
-	"data-fetcher/AWS/models"
+	"cco-package/fetcher/AWS/models"
 )
 
 func ProcessVersionFile(db *gorm.DB, filepath string, regionID uint) error {

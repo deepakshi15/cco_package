@@ -6,32 +6,45 @@ import (
 	"os"
 	"strconv"
 	"gorm.io/gorm"
-	"data-fetcher/AWS/models"
-    "data-fetcher/AWS/utils"
+	"cco-package/fetcher/AWS/models"
+    "cco-package/fetcher/AWS/utils"
+	"fmt"
 )
-func ProcessCurrentVersionFile(db *gorm.DB, filepath string, regionID uint) {
-	file, err := os.Open(filepath)
-	if err != nil {
-		log.Fatalf("Failed to open current version file: %v", err)
-	}
-	defer file.Close()
+func ProcessCurrentVersionFile(db *gorm.DB, filepath string, regionID uint) error {
+    file, err := os.Open(filepath)
+    if err != nil {
+        return fmt.Errorf("failed to open current version file: %v", err)
+    }
+    defer file.Close()
 
-	var data models.PricingData
+    var data models.PricingData
 
-	err = json.NewDecoder(file).Decode(&data)
-	if err != nil {
-		log.Fatalf("Failed to decode current version file: %v", err)
-	}
+    err = json.NewDecoder(file).Decode(&data)
+    if err != nil {
+        return fmt.Errorf("failed to decode current version file: %v", err)
+    }
 
-	// Convert map to slice and call function to process products (SKUs)
-	productsSlice := mapToSlice(data.Products)
-	processProducts(db, productsSlice, regionID)
+    // Convert map to slice and call function to process products (SKUs)
+    productsSlice := mapToSlice(data.Products)
+    err = processProducts(db, productsSlice, regionID)
+    if err != nil {
+        return fmt.Errorf("failed to process products: %v", err)
+    }
 
-	// Call function to process terms
+    // Call function to process terms
+    err = processTerms(db, data.Terms["OnDemand"])
+    if err != nil {
+        return fmt.Errorf("failed to process on-demand terms: %v", err)
+    }
 
-	processTerms(db, data.Terms["OnDemand"])
-	processTerms(db, data.Terms["Reserved"])
+    err = processTerms(db, data.Terms["Reserved"])
+    if err != nil {
+        return fmt.Errorf("failed to process reserved terms: %v", err)
+    }
+
+    return nil
 }
+
 
 // Helper function to convert map to slice
 func mapToSlice(productsMap map[string]models.Product) []models.Product {
@@ -43,10 +56,13 @@ func mapToSlice(productsMap map[string]models.Product) []models.Product {
 }
 
 // Function to process and insert products (SKUs) into the DB
-func processProducts(db *gorm.DB, products []models.Product, regionID uint) {
+func processProducts(db *gorm.DB, products []models.Product, regionID uint) error {
 	for _, product := range products {
 		// Check and parse VCPU, default to 0 if missing
-		vcpu, _ := strconv.Atoi(utils.DefaultIfEmpty(product.Attributes["vcpu"], "0"))
+		vcpu, err := strconv.Atoi(utils.DefaultIfEmpty(product.Attributes["vcpu"], "0"))
+		if err != nil {
+			return fmt.Errorf("failed to convert vcpu for SKU %s: %v", product.SKU, err)
+		}
 
 		// Create SKU record
 		sku := models.SKU{
@@ -61,20 +77,23 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) {
 			Storage:         product.Attributes["storage"],
 			Network:         product.Attributes["networkPerformance"],
 			CpuArchitecture: product.Attributes["processorArchitecture"],
-			Memory: 		 product.Attributes["memory"],
+			Memory:          product.Attributes["memory"],
 		}
 
 		// Insert SKU (check if it exists, create if not)
 		if err := db.FirstOrCreate(&sku, models.SKU{SKUCode: sku.SKUCode}).Error; err != nil {
-			log.Printf("Failed to insert SKU %s: %v", product.SKU, err)
+			return fmt.Errorf("failed to insert SKU %s: %v", product.SKU, err)
 		} else {
 			log.Printf("Successfully inserted SKU: %s", product.SKU)
 		}
 	}
+
+	return nil
 }
-func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) {
+
+func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) error {
 	for skuCode, termData := range terms {
-		log.Printf("Processing Term Sku: %s", skuCode)
+		log.Printf("Processing Term SKU: %s", skuCode)
 
 		for termType, termDetails := range termData {
 			log.Printf("Processing TermType: %s", termType)
@@ -82,8 +101,7 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) {
 			// Fetch the SKU_ID for the given SKU code
 			var skuID uint
 			if err := db.Table("skus").Select("id").Where("sku_code = ?", skuCode).Scan(&skuID).Error; err != nil {
-				log.Printf("Failed to find SKU_ID for SKU %s: %v", skuCode, err)
-				continue
+				return fmt.Errorf("failed to find SKU_ID for SKU %s: %v", skuCode, err)
 			}
 
 			// Extract the PriceDimension data
@@ -101,8 +119,7 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) {
 
 				// Insert the term entry into the database
 				if err := db.Create(&termEntry).Error; err != nil {
-					log.Printf("Failed to insert term for SKU %s: %v", skuCode, err)
-					continue
+					return fmt.Errorf("failed to insert term for SKU %s: %v", skuCode, err)
 				}
 
 				log.Printf("Successfully inserted term for SKU %s", skuCode)
@@ -124,8 +141,7 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) {
 
 					// Insert term attributes into the database
 					if err := db.Create(&termAttributes).Error; err != nil {
-						log.Printf("Failed to insert termAttributes for SKU %s: %v", skuCode, err)
-						continue
+						return fmt.Errorf("failed to insert termAttributes for SKU %s: %v", skuCode, err)
 					}
 
 					log.Printf("Successfully inserted termAttributes for SKU %s", skuCode)
@@ -135,4 +151,5 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) {
 			}
 		}
 	}
+	return nil
 }

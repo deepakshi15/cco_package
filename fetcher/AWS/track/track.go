@@ -2,53 +2,54 @@ package track
 
 import (
 	"encoding/json"
-	"data-fetcher/AWS/models"
-	"os"
+	"cco-package/fetcher/AWS/models"
 	"fmt"
 	"gorm.io/gorm"
-	"io/ioutil"
+	"os"
 )
-func CreateEmptyTrackFile(fileName string) {
+
+func CreateEmptyTrackFile(fileName string) error {
 	initialState := models.RegionState{
 		RegionName: "",
 		State:      "processed",
 	}
-	writeTrackFile(fileName, initialState)
+	return writeTrackFile(fileName, initialState)
 }
-func ReadTrackFile(fileName string) models.RegionState {
+
+func ReadTrackFile(fileName string) (models.RegionState, error) {
 	var state models.RegionState
-	data, err := ioutil.ReadFile(fileName)
+	data, err := os.ReadFile(fileName)
 	if err != nil {
-		fmt.Printf("Error reading track file: %v\n", err)
-		os.Exit(1)
+		return state, fmt.Errorf("error reading track file: %v", err)
 	}
 	err = json.Unmarshal(data, &state)
 	if err != nil {
-		fmt.Printf("Error parsing JSON: %v\n", err)
-		os.Exit(1)
+		return state, fmt.Errorf("error parsing JSON: %v", err)
 	}
-	return state
+	return state, nil
 }
-func UpdateTrackFile(fileName, regionName, state string) {
+
+func UpdateTrackFile(fileName, regionName, state string) error {
 	newState := models.RegionState{
 		RegionName: regionName,
 		State:      state,
 	}
-	writeTrackFile(fileName, newState)
+	return writeTrackFile(fileName, newState)
 }
-func writeTrackFile(fileName string, state models.RegionState) {
+
+func writeTrackFile(fileName string, state models.RegionState) error {
 	data, err := json.MarshalIndent(state, "", "  ")
 	if err != nil {
-		fmt.Printf("Error encoding JSON: %v\n", err)
-		os.Exit(1)
+		return fmt.Errorf("error encoding JSON: %v", err)
 	}
-	err = ioutil.WriteFile(fileName, data, 0644)
+	err = os.WriteFile(fileName, data, 0644)
 	if err != nil {
-		fmt.Printf("Error writing to track file: %v\n", err)
-		os.Exit(1)
+		return fmt.Errorf("error writing to track file: %v", err)
 	}
+	return nil
 }
-func RemoveRegionData(db *gorm.DB, regionName string) {
+
+func RemoveRegionData(db *gorm.DB, regionName string) error {
 	fmt.Printf("Removing data for region: %s\n", regionName)
 
 	// Begin a transaction for atomicity
@@ -66,39 +67,35 @@ func RemoveRegionData(db *gorm.DB, regionName string) {
 	if err := tx.Where("region_code = ?", regionName).First(&region).Error; err != nil {
 		if err == gorm.ErrRecordNotFound {
 			fmt.Printf("Region not found: %s\n", regionName)
-			return
+			return nil
 		}
 		tx.Rollback()
-		fmt.Printf("Failed to fetch region: %v\n", err)
-		return
+		return fmt.Errorf("failed to fetch region: %v", err)
 	}
 
 	// Delete the associated SKU records first
 	if err := tx.Where("region_id = ?", region.RegionID).Delete(&models.SKU{}).Error; err != nil {
 		tx.Rollback()
-		fmt.Printf("Failed to delete SKU data: %v\n", err)
-		return
+		return fmt.Errorf("failed to delete SKU data: %v", err)
 	}
 
 	// Optionally delete other related data, like SavingsPlan
 	if err := tx.Where("region_id = ?", region.RegionID).Delete(&models.SavingPlan{}).Error; err != nil {
 		tx.Rollback()
-		fmt.Printf("Failed to delete savings plan data: %v\n", err)
-		return
+		return fmt.Errorf("failed to delete savings plan data: %v", err)
 	}
 
 	// Delete the region itself
 	if err := tx.Delete(&region).Error; err != nil {
 		tx.Rollback()
-		fmt.Printf("Failed to delete region: %v\n", err)
-		return
+		return fmt.Errorf("failed to delete region: %v", err)
 	}
 
 	// Commit the transaction
 	if err := tx.Commit().Error; err != nil {
-		fmt.Printf("Failed to commit transaction: %v\n", err)
-		return
+		return fmt.Errorf("failed to commit transaction: %v", err)
 	}
 
 	fmt.Printf("Successfully removed data for region: %s\n", regionName)
+	return nil
 }

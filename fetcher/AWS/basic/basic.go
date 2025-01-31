@@ -2,12 +2,13 @@ package basic
 
 import (
 	"encoding/json"
-	"log"
+
 	"os"
 	"strconv"
 	"gorm.io/gorm"
 	"cco-package/fetcher/AWS/models"
     "cco-package/fetcher/AWS/utils"
+	"cco-package/fetcher/AWS/convertData"
 	"fmt"
 )
 func ProcessCurrentVersionFile(db *gorm.DB, filepath string, regionID uint) error {
@@ -63,7 +64,17 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) erro
 		if err != nil {
 			return fmt.Errorf("failed to convert vcpu for SKU %s: %v", product.SKU, err)
 		}
+		if product.ProductFamily == "Compute Instance" || product.ProductFamily=="Compute Instance (bare metal)"{
+			product.ProductFamily= "Compute"
+		}
+		if 	 product.Attributes["processorArchitecture"] == "64-bit"{
+			product.Attributes["processorArchitecture"]="64"
+		}
+		var networkData = product.Attributes["networkPerformance"]
+		networkData = ConvertData.ConvertNetwork(networkData)
 
+		var memoryData = product.Attributes["memory"]
+		memoryData = ConvertData.ConvertMemory(memoryData)
 		// Create SKU record
 		sku := models.SKU{
 			SKUCode:         product.SKU,
@@ -75,16 +86,16 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) erro
 			OperatingSystem: product.Attributes["operatingSystem"],
 			InstanceType:    product.Attributes["instanceType"],
 			Storage:         product.Attributes["storage"],
-			Network:         product.Attributes["networkPerformance"],
+			Network:         networkData,
 			CpuArchitecture: product.Attributes["processorArchitecture"],
-			Memory:          product.Attributes["memory"],
+			Memory:         memoryData,
 		}
 
 		// Insert SKU (check if it exists, create if not)
 		if err := db.FirstOrCreate(&sku, models.SKU{SKUCode: sku.SKUCode}).Error; err != nil {
 			return fmt.Errorf("failed to insert SKU %s: %v", product.SKU, err)
 		} else {
-			log.Printf("Successfully inserted SKU: %s", product.SKU)
+			continue
 		}
 	}
 
@@ -93,10 +104,9 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) erro
 
 func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) error {
 	for skuCode, termData := range terms {
-		log.Printf("Processing Term SKU: %s", skuCode)
-
-		for termType, termDetails := range termData {
-			log.Printf("Processing TermType: %s", termType)
+	
+		for _, termDetails := range termData {
+		
 
 			// Fetch the SKU_ID for the given SKU code
 			var skuID uint
@@ -105,8 +115,8 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) e
 			}
 
 			// Extract the PriceDimension data
-			for priceKey, priceDetails := range termDetails.PriceDimensions {
-				log.Printf("Processing PriceDimension: %s for SKU: %s", priceKey, skuCode)
+			for _, priceDetails := range termDetails.PriceDimensions {
+			
 				pricePerUnit := priceDetails.PricePerUnit["USD"]
 
 				// Create a term entry in Price
@@ -122,7 +132,7 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) e
 					return fmt.Errorf("failed to insert term for SKU %s: %v", skuCode, err)
 				}
 
-				log.Printf("Successfully inserted term for SKU %s", skuCode)
+				
 
 				// Check if TermAttributes have non-empty values
 				leaseContractLength := termDetails.TermAttributes.LeaseContractLength
@@ -133,7 +143,7 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) e
 					// Insert term attributes only if there are non-empty values
 					termAttributes := models.Term{
 						SKU_ID:              skuID,
-						LeaseContractLength: leaseContractLength,
+						LeaseContractLength: ConvertData.ConvertYear(leaseContractLength),
 						PurchaseOption:      purchaseOption,
 						OfferingClass:       offeringClass,
 						PriceID:             termEntry.PriceID,
@@ -143,11 +153,7 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) e
 					if err := db.Create(&termAttributes).Error; err != nil {
 						return fmt.Errorf("failed to insert termAttributes for SKU %s: %v", skuCode, err)
 					}
-
-					log.Printf("Successfully inserted termAttributes for SKU %s", skuCode)
-				} else {
-					log.Printf("No valid TermAttributes for SKU %s; skipping insertion.", skuCode)
-				}
+				} 
 			}
 		}
 	}

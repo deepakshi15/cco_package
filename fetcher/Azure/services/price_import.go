@@ -72,14 +72,14 @@ func ImportPricesData() error {
 			if result.Error != nil {
 				log.Printf("Error inserting price for skuId: %s, error: %v", skuID, result.Error)
 			} else {
-				log.Printf("Price inserted successfully for skuId: %s with price per unit: %.6f", skuID, retailPrice)
+				continue
 			}
 		}
 
 		// Check for the next page using the NextPageLink field
 		nextPageLink, exists := priceData["NextPageLink"].(string)
 		if !exists || nextPageLink == "" {
-			log.Println("All pages fetched successfully.")
+			log.Println("Azure : All pages fetched successfully.")
 			break
 		}
 
@@ -87,6 +87,6 @@ func ImportPricesData() error {
 		priceApiUrl = nextPageLink
 	}
 
-	log.Println("Prices data import completed successfully.")
+	log.Println("Azure : Prices data import completed successfully.")
 	return nil
 }

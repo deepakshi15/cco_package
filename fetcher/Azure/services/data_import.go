@@ -17,9 +17,7 @@ func ImportData() error { // fetch and import price data from API
 	result := config.DB.Where("provider_name = ?", provider.ProviderName).FirstOrCreate(&provider)
 	if result.Error != nil {
 		return fmt.Errorf("Error inserting provider: %v", result.Error)
-	} else {
-		log.Printf("Provider inserted or already exists: %v", provider.ProviderName)
-	}
+	} 
 
 	for nextPageLink != "" { // loops through the API's paginated responses
 		// Fetch data from the current page of the price API
@@ -50,7 +48,7 @@ func ImportData() error { // fetch and import price data from API
 			if result.Error != nil {
 				log.Printf("Error inserting region: %v", result.Error)
 			} else {
-				log.Printf("Region inserted or already exists: %v", region.RegionCode)
+				continue
 			}
 		}
 

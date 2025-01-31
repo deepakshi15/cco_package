@@ -38,7 +38,7 @@ func ProcessVersionFile(db *gorm.DB, filepath string, regionID uint) error {
 			if err := db.Create(&savingPlan).Error; err != nil {
 				log.Printf("Failed to insert SavingPlan for SKU %s: %v", term.Sku, err)
 			} else {
-				log.Printf("Successfully inserted SavingPlan for SKU %s", term.Sku)
+				continue
 			}
 		}
 	}

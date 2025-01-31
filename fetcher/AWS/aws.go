@@ -159,7 +159,7 @@ func RunAWS() error {
 		// Process the corresponding region in the saving region index (Saving Plan)
 		for _, savingRegion := range savingRegionData.Regions {
 			if savingRegion.RegionCode == regionCode {
-				log.Printf("Processing Saving Plan for region: %s", savingRegion.RegionCode)
+			
 
 				// Download the saving plan version file for the region
 				savingVersionURL := config.BaseURL + savingRegion.VersionUrl

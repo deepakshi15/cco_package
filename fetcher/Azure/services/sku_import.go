@@ -150,7 +150,7 @@ func ImportSkuData() error {
 			if result.Error != nil {
 				log.Printf("Error inserting SKU: %v", result.Error)
 			} else {
-				log.Printf("SKU inserted successfully: %v", SKU.Name)
+				continue
 			}
 		}
 

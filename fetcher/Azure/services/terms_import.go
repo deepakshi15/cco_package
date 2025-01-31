@@ -99,7 +99,7 @@ func ImportTermsData() error {
 				if result.Error != nil {
 					log.Printf("Error inserting term for skuId: %s, error: %v", skuID, result.Error)
 				} else {
-					log.Printf("Term inserted successfully for skuId: %s with lease_contract_length: %s", skuID, leaseContractLength)
+				continue
 				}
 			}
 		}

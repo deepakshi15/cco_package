@@ -42,8 +42,8 @@ func executeWithRetry(task func() error, taskName string) {
 }
 
 // Wrappers to convert functions to return an error
-func awsTask() error {
-	err := fetcher.Fetcher() // Ensure aws.Aws() returns an error
+func dataFetcher() error {
+	err := fetcher.Fetcher()
 	if err != nil {
 		return err
 	}
@@ -60,26 +60,20 @@ func updateDatabaseTask() error {
 
 func runTask() {
 	log.Println("Task started at:", time.Now())
-
 	// Run AWS fetch with retry
-	executeWithRetry(awsTask, "AWS Fetch")
-
+	executeWithRetry(dataFetcher, "Fetching Data")
 	// Run Database update with retry
 	executeWithRetry(updateDatabaseTask, "Update Database")
-
 	log.Println("Task completed at:", time.Now())
 }
 
 func main() {
 	c := cron.New()
-
 	_, err := c.AddFunc("@every 1m", runTask)
 	if err != nil {
 		log.Fatal("Error scheduling cron job:", err)
 	}
-
 	log.Println("Cron job started, will run every minute.")
 	c.Start()
-
 	select {} // Keep the program running
 }

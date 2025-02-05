@@ -86,7 +86,6 @@ func Updatedatabase() error {
 func transferData(sourceDb, targetDb *gorm.DB) error {
 	const batchSize = 1000
 
-	// Empty targetDb before transferring
 	if err := emptyDatabase(targetDb); err != nil {
 		return fmt.Errorf("failed to empty targetDb before data transfer: %w", err)
 	}

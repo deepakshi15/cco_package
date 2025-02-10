@@ -1,0 +1,345 @@
+PREFIX: 2025/02/06 11:27:44 main.go:88: Cron job started, will run every minute.
+PREFIX: 2025/02/06 11:28:44 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 11:29:44 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 11:34:08 main.go:88: Cron job started, will run every minute.
+PREFIX: 2025/02/06 11:34:27 main.go:88: Cron job started, will run every minute.
+PREFIX: 2025/02/06 11:35:27 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 11:41:34 main.go:88: Cron job started, will run every minute.
+PREFIX: 2025/02/06 11:42:34 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 11:43:34 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 11:44:34 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 11:45:34 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 11:46:11 main.go:88: Cron job started, will run every minute.
+PREFIX: 2025/02/06 12:12:32 main.go:90: Cron job started, will run every minute.
+PREFIX: 2025/02/06 12:13:32 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:14:32 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:15:32 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:24:39 main.go:97: Cron job started, will run every minute.
+PREFIX: 2025/02/06 12:25:39 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:26:39 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:27:39 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:28:39 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:29:39 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:30:39 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:31:39 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:32:39 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:33:39 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:51:57 main.go:97: Cron job started, will run every minute.
+PREFIX: 2025/02/06 12:52:57 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:53:57 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:54:57 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:55:57 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:56:57 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:57:57 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 12:58:57 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 14:54:53 main.go:97: Cron job started, will run every minute.
+PREFIX: 2025/02/06 14:55:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 14:56:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 14:57:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 14:58:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 14:59:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:00:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:01:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:02:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:03:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:04:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:05:53 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:06:03 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:26:46 main.go:97: Cron job started, will run every minute.
+PREFIX: 2025/02/06 15:27:46 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:28:46 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:29:46 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:30:46 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:31:46 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:32:46 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:33:46 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:34:46 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 15:35:46 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:33:13 main.go:97: Cron job started, will run every minute.
+PREFIX: 2025/02/06 16:34:13 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:35:13 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:37:18 main.go:97: Cron job started, will run every minute.
+PREFIX: 2025/02/06 16:38:22 main.go:97: Cron job started, will run every minute.
+PREFIX: 2025/02/06 16:39:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:40:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:41:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:42:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:43:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:44:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:45:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:46:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:47:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:48:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:49:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:50:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:51:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:52:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:53:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/06 16:54:22 fetcher.go:28: Starting Fetcher
+PREFIX: 2025/02/07 11:23:04 main.go:97: Cron job started, will run every minute.2025/02/07 11:24:04 Task started at: 2025-02-07 11:24:04.0013471 +0530 IST m=+60.007824001
+PREFIX: 2025/02/07 11:24:04 fetcher.go:28: Starting Fetcher
+2025/02/07 11:24:09 Processing region: ap-northeast-3
+2025/02/07 11:25:04 Task started at: 2025-02-07 11:25:04.0018122 +0530 IST m=+120.007119001
+PREFIX: 2025/02/07 11:25:04 fetcher.go:28: Starting Fetcher
+2025/02/07 11:25:04 Processing region: us-east-1-mci-1
+2025/02/07 11:25:07 Successfully deleted file: price-list\us-east-1-mci-1.json
+2025/02/07 11:25:11 Successfully deleted saving version file: price-list\us-east-1-mci-1.json
+2025/02/07 11:25:11 Processing region: eu-north-1-hel-1
+2025/02/07 11:25:12 Successfully deleted file: price-list\eu-north-1-hel-1.json
+2025/02/07 11:25:16 Successfully deleted saving version file: price-list\eu-north-1-hel-1.json
+2025/02/07 11:25:16 Processing region: us-east-1-wl1-chi1
+2025/02/07 11:25:17 Successfully deleted file: price-list\us-east-1-wl1-chi1.json
+2025/02/07 11:25:18 Successfully deleted saving version file: price-list\us-east-1-wl1-chi1.json
+2025/02/07 11:25:18 Processing region: eu-south-2
+2025/02/07 11:25:52 Successfully deleted file: price-list\ap-northeast-3.json
+2025/02/07 11:26:04 Task started at: 2025-02-07 11:26:04.0022838 +0530 IST m=+180.006420601
+PREFIX: 2025/02/07 11:26:04 fetcher.go:28: Starting Fetcher
+2025/02/07 11:26:05 Processing region: us-east-1-bos-1
+2025/02/07 11:26:17 Successfully deleted file: price-list\us-east-1-bos-1.json
+2025/02/07 11:26:27 Successfully deleted saving version file: price-list\us-east-1-bos-1.json
+2025/02/07 11:26:27 Processing region: ap-southeast-4
+2025/02/07 11:27:04 Task started at: 2025-02-07 11:27:04.002172 +0530 IST m=+240.005138801
+PREFIX: 2025/02/07 11:27:04 fetcher.go:28: Starting Fetcher
+2025/02/07 11:27:05 Processing region: eu-west-2
+PREFIX: 2025/02/07 11:36:45 main.go:97: Cron job started, will run every minute.
+PREFIX: 2025/02/07 11:37:54 main.go:97: Cron job started, will run every minute.
+2025/02/07 11:38:54 Task started at: 2025-02-07 11:38:54.0005731 +0530 IST m=+59.450382001
+PREFIX: 2025/02/07 11:38:54 fetcher.go:28: Starting Fetcher
+2025/02/07 11:38:54 Error importing Azure VM data: Error inserting provider: ERROR: relation "providers" does not exist (SQLSTATE 42P01)
+2025/02/07 11:38:59 Processing region: us-west-2-wl1-lax1
+2025/02/07 11:39:00 Successfully deleted file: price-list\us-west-2-wl1-lax1.json
+2025/02/07 11:39:02 Successfully deleted saving version file: price-list\us-west-2-wl1-lax1.json
+2025/02/07 11:39:02 Processing region: il-central-1
+PREFIX: 2025/02/07 11:51:03 main.go:97: Cron job started, will run every minute.
+2025/02/07 11:52:03 Task started at: 2025-02-07 11:52:03.0007995 +0530 IST m=+59.053467201
+PREFIX: 2025/02/07 11:52:03 fetcher.go:28: Starting Fetcher
+2025/02/07 11:52:08 Processing region: eu-central-1-ham-1
+2025/02/07 11:52:10 Successfully deleted file: price-list\eu-central-1-ham-1.json
+2025/02/07 11:52:13 Successfully deleted saving version file: price-list\eu-central-1-ham-1.json
+2025/02/07 11:52:13 Processing region: ap-northeast-2-wl1-sel1
+2025/02/07 11:52:14 Successfully deleted file: price-list\ap-northeast-2-wl1-sel1.json
+2025/02/07 11:52:15 Successfully deleted saving version file: price-list\ap-northeast-2-wl1-sel1.json
+2025/02/07 11:52:15 Processing region: us-east-1-qro-1
+2025/02/07 11:52:17 Successfully deleted file: price-list\us-east-1-qro-1.json
+2025/02/07 11:52:21 Successfully deleted saving version file: price-list\us-east-1-qro-1.json
+2025/02/07 11:52:21 Processing region: ap-south-1-del-1
+2025/02/07 11:52:23 Successfully deleted file: price-list\ap-south-1-del-1.json
+2025/02/07 11:52:26 Successfully deleted saving version file: price-list\ap-south-1-del-1.json
+2025/02/07 11:52:26 Processing region: us-east-1-mia-1
+2025/02/07 11:52:34 Successfully deleted file: price-list\us-east-1-mia-1.json
+2025/02/07 11:52:46 Successfully deleted saving version file: price-list\us-east-1-mia-1.json
+2025/02/07 11:52:46 Processing region: eu-central-1
+2025/02/07 11:53:03 Task started at: 2025-02-07 11:53:03.001264 +0530 IST m=+119.053607701
+PREFIX: 2025/02/07 11:53:03 fetcher.go:28: Starting Fetcher
+2025/02/07 11:53:07 Processing region: us-east-1-bos-1
+2025/02/07 11:53:11 Successfully deleted file: price-list\us-east-1-bos-1.json
+2025/02/07 11:53:17 Successfully deleted saving version file: price-list\us-east-1-bos-1.json
+2025/02/07 11:53:17 Processing region: ap-northeast-1-tpe-1
+2025/02/07 11:53:20 Successfully deleted file: price-list\ap-northeast-1-tpe-1.json
+2025/02/07 11:53:24 Successfully deleted saving version file: price-list\ap-northeast-1-tpe-1.json
+2025/02/07 11:53:24 Processing region: us-west-2-wl1-lax1
+2025/02/07 11:53:25 Successfully deleted file: price-list\us-west-2-wl1-lax1.json
+2025/02/07 11:53:26 Successfully deleted saving version file: price-list\us-west-2-wl1-lax1.json
+2025/02/07 11:53:26 Processing region: us-west-2-wl1-phx1
+2025/02/07 11:53:28 Successfully deleted file: price-list\us-west-2-wl1-phx1.json
+2025/02/07 11:53:30 Successfully deleted saving version file: price-list\us-west-2-wl1-phx1.json
+2025/02/07 11:53:30 Processing region: eu-central-1
+2025/02/07 11:54:03 Task started at: 2025-02-07 11:54:03.0010325 +0530 IST m=+179.053052201
+PREFIX: 2025/02/07 11:54:03 fetcher.go:28: Starting Fetcher
+2025/02/07 11:54:04 Processing region: us-west-2-den-1
+2025/02/07 11:54:11 Successfully deleted file: price-list\us-west-2-den-1.json
+2025/02/07 11:54:21 Successfully deleted saving version file: price-list\us-west-2-den-1.json
+2025/02/07 11:54:21 Processing region: eu-north-1-cph-1
+2025/02/07 11:54:24 Successfully deleted file: price-list\eu-north-1-cph-1.json
+2025/02/07 11:54:30 Successfully deleted saving version file: price-list\eu-north-1-cph-1.json
+2025/02/07 11:54:30 Processing region: ap-southeast-2-akl-1
+2025/02/07 11:54:33 Successfully deleted file: price-list\ap-southeast-2-akl-1.json
+2025/02/07 11:54:45 Successfully deleted saving version file: price-list\ap-southeast-2-akl-1.json
+2025/02/07 11:54:45 Processing region: us-east-2
+2025/02/07 11:55:03 Task started at: 2025-02-07 11:55:03.0009427 +0530 IST m=+239.052701801
+PREFIX: 2025/02/07 11:55:03 fetcher.go:28: Starting Fetcher
+2025/02/07 11:55:03 Processing region: ap-southeast-1-bkk-1
+2025/02/07 11:55:06 Successfully deleted file: price-list\ap-southeast-1-bkk-1.json
+2025/02/07 11:55:11 Successfully deleted saving version file: price-list\ap-southeast-1-bkk-1.json
+2025/02/07 11:55:11 Processing region: eu-central-1-wl1-dtm1
+2025/02/07 11:55:12 Successfully deleted file: price-list\eu-central-1-wl1-dtm1.json
+2025/02/07 11:55:14 Successfully deleted saving version file: price-list\eu-central-1-wl1-dtm1.json
+2025/02/07 11:55:14 Processing region: eu-central-1
+PREFIX: 2025/02/07 12:13:19 auth.go:29: Warning: No .env file found. Environment variables must be set manually.
+PREFIX: 2025/02/07 12:13:19 main.go:97: Cron job started, will run every minute.
+2025/02/07 12:14:19 Task started at: 2025-02-07 12:14:19.001483 +0530 IST m=+59.650521701
+PREFIX: 2025/02/07 12:14:19 fetcher.go:28: Starting Fetcher
+2025/02/07 12:14:24 Processing region: sa-east-1
+2025/02/07 12:15:19 Task started at: 2025-02-07 12:15:19.0021325 +0530 IST m=+119.650001201
+PREFIX: 2025/02/07 12:15:19 fetcher.go:28: Starting Fetcher
+2025/02/07 12:15:19 Processing region: eu-central-1
+2025/02/07 12:16:19 Task started at: 2025-02-07 12:16:19.0015697 +0530 IST m=+179.648268401
+PREFIX: 2025/02/07 12:16:19 fetcher.go:28: Starting Fetcher
+2025/02/07 12:16:19 Processing region: ap-southeast-7
+PREFIX: 2025/02/07 13:12:44 main.go:97: Cron job started, will run every minute.
+2025/02/07 13:13:44 Task started at: 2025-02-07 13:13:44.0009071 +0530 IST m=+59.663234001
+PREFIX: 2025/02/07 13:13:44 fetcher.go:28: Starting Fetcher
+2025/02/07 13:13:49 Processing region: ap-southeast-1-mnl-1
+2025/02/07 13:13:52 Successfully deleted file: price-list\ap-southeast-1-mnl-1.json
+2025/02/07 13:13:57 Successfully deleted saving version file: price-list\ap-southeast-1-mnl-1.json
+2025/02/07 13:13:57 Processing region: eu-north-1-cph-1
+2025/02/07 13:13:58 Successfully deleted file: price-list\eu-north-1-cph-1.json
+2025/02/07 13:14:01 Successfully deleted saving version file: price-list\eu-north-1-cph-1.json
+2025/02/07 13:14:01 Processing region: us-west-2-pdx-1
+2025/02/07 13:14:03 Successfully deleted file: price-list\us-west-2-pdx-1.json
+2025/02/07 13:14:07 Successfully deleted saving version file: price-list\us-west-2-pdx-1.json
+2025/02/07 13:14:07 Processing region: ap-southeast-2
+2025/02/07 13:14:44 Task started at: 2025-02-07 13:14:44.0012045 +0530 IST m=+119.663267401
+PREFIX: 2025/02/07 13:14:44 fetcher.go:28: Starting Fetcher
+2025/02/07 13:14:48 Processing region: ap-southeast-5
+2025/02/07 13:15:44 Task started at: 2025-02-07 13:15:44.0005483 +0530 IST m=+179.662460201
+PREFIX: 2025/02/07 13:15:44 fetcher.go:28: Starting Fetcher
+2025/02/07 13:15:44 Processing region: me-south-1
+2025/02/07 13:16:44 Task started at: 2025-02-07 13:16:44.0006604 +0530 IST m=+239.662422301
+PREFIX: 2025/02/07 13:16:44 fetcher.go:28: Starting Fetcher
+2025/02/07 13:16:44 Processing region: us-east-1-mia-1
+2025/02/07 13:17:04 Successfully deleted file: price-list\us-east-1-mia-1.json
+2025/02/07 13:17:06 Successfully deleted file: price-list\ap-southeast-5.json
+2025/02/07 13:17:35 Successfully deleted saving version file: price-list\us-east-1-mia-1.json
+2025/02/07 13:17:35 Processing region: us-east-1-bos-1
+2025/02/07 13:17:41 Successfully deleted file: price-list\us-east-1-bos-1.json
+2025/02/07 13:17:44 Task started at: 2025-02-07 13:17:44.0008043 +0530 IST m=+299.662416201
+PREFIX: 2025/02/07 13:17:44 fetcher.go:28: Starting Fetcher
+2025/02/07 13:17:45 Processing region: us-east-1-wl1-iah1
+2025/02/07 13:17:47 Successfully deleted file: price-list\us-east-1-wl1-iah1.json
+2025/02/07 13:17:50 Successfully deleted saving version file: price-list\us-east-1-wl1-iah1.json
+2025/02/07 13:17:50 Processing region: us-west-1
+2025/02/07 13:17:54 Successfully deleted saving version file: price-list\us-east-1-bos-1.json
+2025/02/07 13:17:54 Processing region: ap-south-1
+2025/02/07 13:18:13 Successfully deleted file: price-list\me-south-1.json
+2025/02/07 13:18:44 Task started at: 2025-02-07 13:18:44.0004723 +0530 IST m=+359.661934201
+PREFIX: 2025/02/07 13:18:44 fetcher.go:28: Starting Fetcher
+2025/02/07 13:18:45 Processing region: us-west-2-pdx-1
+2025/02/07 13:18:48 Successfully deleted file: price-list\us-west-2-pdx-1.json
+2025/02/07 13:18:52 Successfully deleted saving version file: price-list\us-west-2-pdx-1.json
+2025/02/07 13:18:52 Processing region: us-west-2-wl1-lax1
+2025/02/07 13:18:53 Successfully deleted file: price-list\us-west-2-wl1-lax1.json
+2025/02/07 13:18:56 Successfully deleted saving version file: price-list\ap-southeast-5.json
+2025/02/07 13:18:56 Processing region: us-east-1-dfw-1
+2025/02/07 13:18:56 Successfully deleted saving version file: price-list\us-west-2-wl1-lax1.json
+2025/02/07 13:18:56 Processing region: eu-south-1
+2025/02/07 13:19:24 Successfully deleted file: price-list\us-east-1-dfw-1.json
+2025/02/07 13:19:44 Task started at: 2025-02-07 13:19:44.0018668 +0530 IST m=+419.663178701
+PREFIX: 2025/02/07 13:19:44 fetcher.go:28: Starting Fetcher
+2025/02/07 13:19:45 Processing region: mx-central-1
+PREFIX: 2025/02/07 15:27:34 main.go:97: Cron job started, will run every minute.
+2025/02/07 15:28:34 Task started at: 2025-02-07 15:28:34.00039 +0530 IST m=+59.092476201
+PREFIX: 2025/02/07 15:28:34 fetcher.go:28: Starting Fetcher
+2025/02/07 15:28:39 Processing region: ca-west-1
+2025/02/07 15:29:34 Task started at: 2025-02-07 15:29:34.0004623 +0530 IST m=+119.092548501
+PREFIX: 2025/02/07 15:29:34 fetcher.go:28: Starting Fetcher
+2025/02/07 15:29:34 Processing region: me-south-1
+2025/02/07 15:29:38 Successfully deleted file: price-list\ca-west-1.json
+2025/02/07 15:30:34 Task started at: 2025-02-07 15:30:34.0003594 +0530 IST m=+179.092445601
+PREFIX: 2025/02/07 15:30:34 fetcher.go:28: Starting Fetcher
+2025/02/07 15:30:34 Processing region: ap-south-1-del-1
+2025/02/07 15:30:43 Successfully deleted file: price-list\ap-south-1-del-1.json
+2025/02/07 15:30:43 Successfully deleted saving version file: price-list\ca-west-1.json
+2025/02/07 15:30:43 Processing region: us-east-1
+2025/02/07 15:30:48 Successfully deleted saving version file: price-list\ap-south-1-del-1.json
+2025/02/07 15:30:48 Processing region: ap-northeast-1-wl1-nrt1
+2025/02/07 15:30:50 Successfully deleted file: price-list\ap-northeast-1-wl1-nrt1.json
+2025/02/07 15:30:53 Successfully deleted saving version file: price-list\ap-northeast-1-wl1-nrt1.json
+2025/02/07 15:30:53 Processing region: us-gov-west-1
+2025/02/07 15:31:12 Successfully deleted file: price-list\me-south-1.json
+2025/02/07 15:31:34 Task started at: 2025-02-07 15:31:34.0009353 +0530 IST m=+239.093021501
+PREFIX: 2025/02/07 15:31:34 fetcher.go:28: Starting Fetcher
+2025/02/07 15:31:35 Processing region: us-west-2-pdx-1
+2025/02/07 15:31:38 Successfully deleted file: price-list\us-west-2-pdx-1.json
+2025/02/07 15:31:43 Successfully deleted saving version file: price-list\us-west-2-pdx-1.json
+2025/02/07 15:31:43 Processing region: us-east-1-wl1-tpa1
+2025/02/07 15:31:44 Successfully deleted file: price-list\us-east-1-wl1-tpa1.json
+2025/02/07 15:31:47 Successfully deleted saving version file: price-list\us-east-1-wl1-tpa1.json
+2025/02/07 15:31:47 Processing region: us-east-1-wl1-atl1
+2025/02/07 15:31:48 Successfully deleted file: price-list\us-east-1-wl1-atl1.json
+2025/02/07 15:31:50 Successfully deleted saving version file: price-list\us-east-1-wl1-atl1.json
+2025/02/07 15:31:50 Processing region: us-east-1-nyc-1
+2025/02/07 15:32:08 Successfully deleted file: price-list\us-east-1-nyc-1.json
+2025/02/07 15:32:34 Task started at: 2025-02-07 15:32:34.0010348 +0530 IST m=+299.093121001
+PREFIX: 2025/02/07 15:32:34 fetcher.go:28: Starting Fetcher
+2025/02/07 15:32:34 Processing region: ap-southeast-3
+2025/02/07 15:32:42 Successfully deleted saving version file: price-list\us-east-1-nyc-1.json
+2025/02/07 15:32:42 Processing region: us-east-1-iah-1
+2025/02/07 15:32:59 Successfully deleted file: price-list\us-east-1-iah-1.json
+2025/02/07 15:33:34 Task started at: 2025-02-07 15:33:34.0021759 +0530 IST m=+359.094262101
+PREFIX: 2025/02/07 15:33:34 fetcher.go:28: Starting Fetcher
+2025/02/07 15:33:36 Processing region: ap-southeast-4
+2025/02/07 15:33:49 Successfully deleted saving version file: price-list\me-south-1.json
+2025/02/07 15:33:49 Processing region: ap-northeast-1-wl1-kix1
+2025/02/07 15:33:52 Successfully deleted file: price-list\ap-northeast-1-wl1-kix1.json
+2025/02/07 15:33:57 Successfully deleted saving version file: price-list\ap-northeast-1-wl1-kix1.json
+2025/02/07 15:33:57 Processing region: us-east-1-wl1-chi1
+2025/02/07 15:34:02 Successfully deleted file: price-list\us-east-1-wl1-chi1.json
+2025/02/07 15:34:08 Successfully deleted saving version file: price-list\us-east-1-wl1-chi1.json
+2025/02/07 15:34:08 Processing region: us-west-2-wl1-las1
+2025/02/07 15:34:11 Successfully deleted file: price-list\us-west-2-wl1-las1.json
+2025/02/07 15:34:16 Successfully deleted saving version file: price-list\us-west-2-wl1-las1.json
+2025/02/07 15:34:16 Processing region: eu-west-2-wl2-man1
+2025/02/07 15:34:18 Successfully deleted saving version file: price-list\us-east-1-iah-1.json
+2025/02/07 15:34:18 Processing region: af-south-1-los-1
+2025/02/07 15:34:20 Successfully deleted file: price-list\eu-west-2-wl2-man1.json
+2025/02/07 15:34:27 Successfully deleted saving version file: price-list\eu-west-2-wl2-man1.json
+2025/02/07 15:34:27 Processing region: eu-south-2
+2025/02/07 15:34:32 Successfully deleted file: price-list\af-south-1-los-1.json
+2025/02/07 15:34:34 Task started at: 2025-02-07 15:34:34.002282 +0530 IST m=+419.094368201
+PREFIX: 2025/02/07 15:34:34 fetcher.go:28: Starting Fetcher
+2025/02/07 15:34:36 Processing region: us-east-1-mia-1
+2025/02/07 15:34:55 Successfully deleted saving version file: price-list\af-south-1-los-1.json
+2025/02/07 15:34:55 Processing region: us-east-1-dfw-1
+2025/02/07 15:35:29 Successfully deleted file: price-list\us-east-1-mia-1.json
+2025/02/07 15:35:34 Task started at: 2025-02-07 15:35:34.0105766 +0530 IST m=+479.102662801
+PREFIX: 2025/02/07 15:35:34 fetcher.go:28: Starting Fetcher
+2025/02/07 15:35:35 Processing region: mx-central-1
+PREFIX: 2025/02/10 10:24:55 main.go:97: Cron job started, will run every minute.
+2025/02/10 10:25:55 Task started at: 2025-02-10 10:25:55.0010869 +0530 IST m=+59.285817301
+PREFIX: 2025/02/10 10:25:55 fetcher.go:28: Starting Fetcher
+2025/02/10 10:26:00 Processing region: ap-northeast-1
+2025/02/10 10:26:55 Task started at: 2025-02-10 10:26:55.0263072 +0530 IST m=+119.309837101
+PREFIX: 2025/02/10 10:26:55 fetcher.go:28: Starting Fetcher
+2025/02/10 10:26:59 Processing region: us-east-1-scl-1
+2025/02/10 10:27:03 Successfully deleted file: price-list\us-east-1-scl-1.json
+2025/02/10 10:27:09 Successfully deleted saving version file: price-list\us-east-1-scl-1.json
+2025/02/10 10:27:09 Processing region: ap-northeast-1-wl1-nrt1
+2025/02/10 10:27:11 Successfully deleted file: price-list\ap-northeast-1-wl1-nrt1.json
+2025/02/10 10:27:13 Successfully deleted saving version file: price-list\ap-northeast-1-wl1-nrt1.json
+2025/02/10 10:27:13 Processing region: eu-north-1-hel-1
+2025/02/10 10:27:16 Successfully deleted file: price-list\eu-north-1-hel-1.json
+2025/02/10 10:27:21 Successfully deleted saving version file: price-list\eu-north-1-hel-1.json
+2025/02/10 10:27:21 Processing region: us-east-1-mia-1
+2025/02/10 10:27:34 Successfully deleted file: price-list\us-east-1-mia-1.json
+2025/02/10 10:27:55 Task started at: 2025-02-10 10:27:55.0256991 +0530 IST m=+179.308029101
+PREFIX: 2025/02/10 10:27:55 fetcher.go:28: Starting Fetcher
+2025/02/10 10:27:55 Processing region: eu-central-1-ham-1
+2025/02/10 10:27:56 Successfully deleted saving version file: price-list\us-east-1-mia-1.json
+2025/02/10 10:27:56 Processing region: il-central-1
+2025/02/10 10:27:59 Successfully deleted file: price-list\eu-central-1-ham-1.json
+2025/02/10 10:28:05 Successfully deleted saving version file: price-list\eu-central-1-ham-1.json
+2025/02/10 10:28:05 Processing region: me-south-1-mct-1
+2025/02/10 10:28:08 Successfully deleted file: price-list\me-south-1-mct-1.json
+2025/02/10 10:28:13 Successfully deleted saving version file: price-list\me-south-1-mct-1.json
+2025/02/10 10:28:13 Processing region: ap-southeast-2-akl-1
+2025/02/10 10:28:16 Successfully deleted file: price-list\ap-southeast-2-akl-1.json
+2025/02/10 10:28:21 Successfully deleted saving version file: price-list\ap-southeast-2-akl-1.json
+2025/02/10 10:28:21 Processing region: eu-south-2
+2025/02/10 10:28:55 Task started at: 2025-02-10 10:28:55.0015161 +0530 IST m=+239.282646501
+PREFIX: 2025/02/10 10:28:55 fetcher.go:28: Starting Fetcher
+2025/02/10 10:28:55 Processing region: eu-south-1
+2025/02/10 10:29:55 Task started at: 2025-02-10 10:29:55.0024702 +0530 IST m=+299.282400601
+PREFIX: 2025/02/10 10:29:55 fetcher.go:28: Starting Fetcher
+2025/02/10 10:29:56 Processing region: us-east-1-mia-1
+2025/02/10 10:30:22 Successfully deleted file: price-list\us-east-1-mia-1.json
+2025/02/10 10:30:55 Task started at: 2025-02-10 10:30:55.0024734 +0530 IST m=+359.281509501
+PREFIX: 2025/02/10 10:30:55 fetcher.go:28: Starting Fetcher
+2025/02/10 10:30:57 Processing region: ap-southeast-1
+2025/02/10 10:31:00 Successfully deleted file: price-list\il-central-1.json
+2025/02/10 10:31:05 Successfully deleted saving version file: price-list\us-east-1-mia-1.json
+2025/02/10 10:31:05 Processing region: il-central-1
+2025/02/10 10:31:55 Task started at: 2025-02-10 10:31:55.0052091 +0530 IST m=+419.284239201
+PREFIX: 2025/02/10 10:31:55 fetcher.go:28: Starting Fetcher
+2025/02/10 10:31:56 Processing region: ap-southeast-1
+2025/02/10 10:32:22 Failed to decode version file: invalid character '2' after object key

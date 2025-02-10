@@ -8,6 +8,8 @@ import (
 	"github.com/robfig/cron/v3"
 	"cco-package/fetcher"
 	"cco-package/updatedatabase"
+	"cco-package/fetcher/config"
+	"cco-package/fetcher/Azure/utils" // Import Azure utils package for auth functions.
 )
 
 // Retry settings
@@ -41,7 +43,7 @@ func executeWithRetry(task func() error, taskName string) {
 	log.Printf("All retries failed for %s. Moving on...\n", taskName)
 }
 
-// Wrappers to convert functions to return an error
+// Wrappers to convert functions to return an error.
 func dataFetcher() error {
 	err := fetcher.Fetcher()
 	if err != nil {
@@ -51,7 +53,7 @@ func dataFetcher() error {
 }
 
 func updateDatabaseTask() error {
-	err := updatedatabase.Updatedatabase() // Ensure updatedatabase.Updatedatabase() returns an error
+	err := updatedatabase.Updatedatabase() // Ensure updatedatabase.Updatedatabase() returns an error.
 	if err != nil {
 		return err
 	}
@@ -60,20 +62,41 @@ func updateDatabaseTask() error {
 
 func runTask() {
 	log.Println("Task started at:", time.Now())
-	// Run AWS fetch with retry
+	// Run AWS fetch with retry.
 	executeWithRetry(dataFetcher, "Fetching Data")
-	// Run Database update with retry
+	// Run Database update with retry.
 	executeWithRetry(updateDatabaseTask, "Update Database")
 	log.Println("Task completed at:", time.Now())
 }
 
 func main() {
-	c := cron.New()
-	_, err := c.AddFunc("@every 1m", runTask)
+	// Initialize the logger before any blocking operations.
+	logger, err := config.InitializeLogger()
 	if err != nil {
-		log.Fatal("Error scheduling cron job:", err)
+		log.Fatalf("Failed to initialize logger: %v", err)
 	}
-	log.Println("Cron job started, will run every minute.")
+
+	// Set the global logger's output so that calls to log.Println also write to logfile.log.
+	// (Optional) You can also call log.SetOutput(...) here if you want to override the default logger.
+	// Example:
+	log.SetOutput(logger.Writer())
+
+	// Pass the logger to other packages.
+	fetcher.SetLogger(logger)
+	utils.SetLogger(logger)
+	config.InitializeLogger()
+	// Now load the .env file so that any errors are logged using the custom logger.
+	utils.LoadEnv()
+
+	// Set up the cron job.
+	c := cron.New()
+	_, err = c.AddFunc("@every 1m", runTask)
+	if err != nil {
+		logger.Fatal("Error scheduling cron job:", err)
+	}
+	logger.Println("Cron job started, will run every minute.")
 	c.Start()
-	select {} // Keep the program running
+
+	// Block the main goroutine indefinitely so that the cron scheduler keeps running.
+	select {}
 }

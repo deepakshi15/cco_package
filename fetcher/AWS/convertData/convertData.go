@@ -1,4 +1,4 @@
-package ConvertData
+package convertData
 
 import (
 	"fmt"

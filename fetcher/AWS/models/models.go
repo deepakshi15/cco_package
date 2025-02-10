@@ -30,6 +30,7 @@ type SKU struct {
 	ID              uint   `gorm:"primaryKey"`
 	RegionID        uint `gorm:"not null;constraint:OnDelete:CASCADE;"` // Foreign key with cascade delete
 	SKUCode         string `gorm:"unique"`
+	ArmSkuName      string `gorm:"column:arm_sku_name"`
 	Name            string
 	InstanceSKU     string
 	ProductFamily   string

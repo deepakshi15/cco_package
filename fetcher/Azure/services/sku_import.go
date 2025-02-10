@@ -1,16 +1,14 @@
 package services
 
 import (
-	"fmt"
-	"log"
-	"os"
-	"strconv"
-	"time"
-
 	"cco-package/fetcher/config"
 	"cco-package/fetcher/Azure/models"
 	"cco-package/fetcher/Azure/utils"
+	"fmt"
 	"github.com/joho/godotenv"
+	"log"
+	"os"
+	"strconv"
 )
 
 func ImportSkuData() error {
@@ -46,9 +44,6 @@ func ImportSkuData() error {
 	}
 
 	nextPageUrl := priceApiUrl
-	pageCount := 0
-	batchSize := 10
-
 	for nextPageUrl != "" {
 		priceData, err := utils.FetchData(nextPageUrl)
 		if err != nil {
@@ -67,18 +62,13 @@ func ImportSkuData() error {
 				continue
 			}
 
-			skuCode, _ := safeString(priceItem["skuId"])
-			productFamily, _ := safeString(priceItem["serviceFamily"])
-			instanceSKU, ok := safeString(priceItem["armSkuName"])
-			if !ok {
+			skuID, _ := safeString(priceItem["skuId"])
+			armSkuName, ok := safeString(priceItem["armSkuName"])
+			if !ok || armSkuName == "" {
 				log.Printf("Missing or invalid armSkuName: %v", priceItem)
 				continue
 			}
-			usageType, ok := safeString(priceItem["type"])
-			if !ok {
-				log.Printf("Missing or invalid type: %v", priceItem)
-				continue
-			}
+			skuType, _ := safeString(priceItem["type"])
 			regionName, _ := safeString(priceItem["armRegionName"])
 
 			var matchedSku map[string]interface{}
@@ -88,20 +78,22 @@ func ImportSkuData() error {
 					continue
 				}
 				name, _ := safeString(skuItem["name"])
-				if name == instanceSKU {
+				if name == armSkuName {
 					matchedSku = skuItem
 					break
 				}
 			}
 
 			if matchedSku == nil {
-				log.Printf("No matching SKU found for armSkuName: %s", instanceSKU)
+				log.Printf("No matching SKU found for armSkuName: %s", armSkuName)
 				continue
 			}
 
 			name, _ := safeString(matchedSku["name"])
-			var vCPU int
-			var memory, cpuArchitecture, network, operatingSystem string
+			size, _ := safeString(matchedSku["size"])
+
+			var vCPUs int
+			var memoryGB, cpuArchitectureType, maxNetworkInterfaces string
 
 			capabilities, ok := matchedSku["capabilities"].([]interface{})
 			if ok {
@@ -112,53 +104,43 @@ func ImportSkuData() error {
 					}
 					switch capName, _ := safeString(capability["name"]); capName {
 					case "vCPUs":
-						vCPU = atoi(capability["value"].(string))
+						vCPUs = atoi(capability["value"].(string))
 					case "MemoryGB":
-						memory, _ = safeString(capability["value"])
+						memoryGB, _ = safeString(capability["value"])
 					case "CpuArchitectureType":
-						cpuArchitecture, _ = safeString(capability["value"])
+						cpuArchitectureType, _ = safeString(capability["value"])
 					case "MaxNetworkInterfaces":
-						network, _ = safeString(capability["value"])
-					case "ProductName": // Corrected to fetch operating system data
-						operatingSystem, _ = safeString(capability["value"])
+						maxNetworkInterfaces, _ = safeString(capability["value"])
 					}
 				}
 			}
 
+			// Ensure `region_name` matches the database schema
 			region := models.Region{}
-			if err := config.DB.Where("region_name = ?", regionName).First(&region).Error; err != nil {
-				log.Printf("Error finding region: %v", err)
+			if err := config.DB.Where("region_code = ?", regionName).First(&region).Error; err != nil {
+				log.Printf("Error finding region: %v (region: %s)", err, regionName)
 				continue
 			}
 
-			SKU := models.SKU{
+			sku := models.SKU{
 				RegionID:        region.RegionID,
-				InstanceSKU:     instanceSKU, // Correct mapping from armSkuName
+				ArmSkuName:      armSkuName,
 				Name:            name,
-				Type:            usageType,
-				SKUCode:         skuCode,
-				ProductFamily:   productFamily,
-				VCPU:            vCPU,
-				Memory:          memory,
-				CpuArchitecture: cpuArchitecture,
-				Network:         network,         // Corrected to map from MaxNetworkInterfaces
-				OperatingSystem: operatingSystem, // Corrected to map from ProductName
-				Storage:         "",
+				Type:            skuType,
+				SKUCode:         skuID,
+				ProductFamily:   size,
+				VCPU:            vCPUs,
+				Memory:          memoryGB,
+				CpuArchitecture: cpuArchitectureType,
+				Network:         maxNetworkInterfaces,
 			}
 
-			result := config.DB.Create(&SKU)
+			result := config.DB.Create(&sku)
 			if result.Error != nil {
 				log.Printf("Error inserting SKU: %v", result.Error)
 			} else {
-				continue
+				log.Printf("SKU inserted successfully: %v (armSkuName: %s)", sku.Name, sku.ArmSkuName)
 			}
-		}
-
-		pageCount++
-		if pageCount >= batchSize {
-			log.Printf("Processed %d pages in this batch. Fetching next batch...", batchSize)
-			pageCount = 0
-			time.Sleep(2 * time.Second)
 		}
 
 		nextPageUrl, _ = safeString(priceData["NextPageLink"])

@@ -70,22 +70,20 @@ func runTask() {
 }
 
 func main() {
-	// Initialize the logger before any blocking operations.
+	// Initialize the logger and clear the logfile before appending new logs.
 	logger, err := config.InitializeLogger()
 	if err != nil {
 		log.Fatalf("Failed to initialize logger: %v", err)
 	}
 
-	// Set the global logger's output so that calls to log.Println also write to logfile.log.
-	// (Optional) You can also call log.SetOutput(...) here if you want to override the default logger.
-	// Example:
+	// Redirect the global logger to write to the same file.
 	log.SetOutput(logger.Writer())
 
 	// Pass the logger to other packages.
 	fetcher.SetLogger(logger)
 	utils.SetLogger(logger)
-	config.InitializeLogger()
-	// Now load the .env file so that any errors are logged using the custom logger.
+
+	// Load the .env file and ensure logs are properly captured.
 	utils.LoadEnv()
 
 	// Set up the cron job.
@@ -97,6 +95,6 @@ func main() {
 	logger.Println("Cron job started, will run every minute.")
 	c.Start()
 
-	// Block the main goroutine indefinitely so that the cron scheduler keeps running.
+	// Block the main goroutine indefinitely so the cron scheduler keeps running.
 	select {}
 }

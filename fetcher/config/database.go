@@ -31,16 +31,15 @@ func ConnectDatabase() error {
     return nil // Return nil if the connection is successful
 }
 
-// InitializeLogger sets up the logger and returns it
+// InitializeLogger initializes the logger and clears the logfile on every run.
 func InitializeLogger() (*log.Logger, error) {
-    // Open the log file in append mode, create it if it doesn't exist
-    f, err := os.OpenFile("logfile.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-    if err != nil {
-        return nil, err
-    }
+	// Use os.Create to truncate the file or create a new one if it doesn't exist.
+	file, err := os.Create("logfile.log")
+	if err != nil {
+		return nil, err
+	}
 
-    // Create a new logger instance
-    logger := log.New(f, "PREFIX: ", log.Ldate|log.Ltime|log.Lshortfile)
-
-    return logger, nil
+	// Create a new logger instance that writes to logfile.log.
+	logger := log.New(file, "PREFIX: ", log.Ldate|log.Ltime|log.Lshortfile)
+	return logger, nil
 }

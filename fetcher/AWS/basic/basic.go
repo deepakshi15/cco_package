@@ -67,9 +67,7 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) erro
 		if product.ProductFamily == "Compute Instance" || product.ProductFamily == "Compute Instance (bare metal)" {
 			product.ProductFamily = "Compute"
 		}
-		if product.Attributes["processorArchitecture"] == "64-bit" {
-			product.Attributes["processorArchitecture"] = "64"
-		}
+		
 		var networkData = product.Attributes["networkPerformance"]
 		networkData = convertData.ConvertNetwork(networkData)
 

@@ -73,17 +73,20 @@ type Term struct {
 }
 
 type SavingPlan struct {
-	ID                  uint   `gorm:"primaryKey"`
+	ID                  uint      `gorm:"primaryKey"`
 	DiscountedSku       string
 	Sku                 string
 	LeaseContractLength int
 	DiscountedRate      string
-	RegionID            uint `gorm:"not null;constraint:OnDelete:CASCADE;"` // Foreign key with cascade delete
-	CreatedDate  time.Time `gorm:"default:current_timestamp"`
-	ModifiedDate time.Time `gorm:"default:current_timestamp"`
-	DisableFlag  bool      `gorm:"default:false"`
+	RegionID            uint      `gorm:"not null;constraint:OnDelete:CASCADE;"` // Foreign key with cascade delete
+	RegionCode          string    `gorm:"not null"`
+	ProviderID          uint      `gorm:"not null;constraint:OnDelete:CASCADE;"` // Foreign key to providers
+	DiscountedInstanceType string `gorm:"not null"` // Added this field
+	Unit                string    `gorm:"not null"`
+	CreatedDate         time.Time `gorm:"default:current_timestamp"`
+	ModifiedDate        time.Time `gorm:"default:current_timestamp"`
+	DisableFlag         bool      `gorm:"default:false"`
 }
-
 
 // ! Iska usage kya hai pata nhi filhal
 type JSON map[string]interface{}
@@ -126,25 +129,26 @@ type SavingTermDetails struct {
 	Sku                 string `json:"sku"`
 	Description         string `json:"description"`
 	EffectiveDate       string `json:"effectiveDate"`
-	LeaseContractLength  struct {
+	LeaseContractLength struct {
 		Duration int    `json:"duration"`
+		Unit     string `json:"unit"` // Added Unit field
 	} `json:"leaseContractLength"`
 	Rates []RateDetails `json:"rates"`
 }
 
 type RateDetails struct {
-	DiscountedSku         string `json:"discountedSku"`
-	DiscountedUsageType   string `json:"discountedUsageType"`
-	DiscountedOperation   string `json:"discountedOperation"`
-	DiscountedServiceCode string `json:"discountedServiceCode"`
-	RateCode              string `json:"rateCode"`
-	Unit                  string `json:"unit"`
-	DiscountedRate        struct {
+	DiscountedSku          string `json:"discountedSku"`
+	DiscountedUsageType    string `json:"discountedUsageType"`
+	DiscountedOperation    string `json:"discountedOperation"`
+	DiscountedServiceCode  string `json:"discountedServiceCode"`
+	RateCode               string `json:"rateCode"`
+	Unit                   string `json:"unit"`                   // Added Unit field
+	DiscountedRate         struct {
 		Price    string `json:"price"`
 		Currency string `json:"currency"`
 	} `json:"discountedRate"`
 	DiscountedRegionCode   string `json:"discountedRegionCode"`
-	DiscountedInstanceType string `json:"discountedInstanceType"`
+	DiscountedInstanceType string `json:"discountedInstanceType"` // Added DiscountedInstanceType
 }
 
 type SavingData struct {

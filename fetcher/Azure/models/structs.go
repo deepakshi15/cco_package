@@ -30,6 +30,7 @@ func (Region) TableName() string {
 type SKU struct {
 	ID              uint   `gorm:"primaryKey"`
 	RegionID        uint   `gorm:"not null;constraint:OnDelete:CASCADE;"` // Foreign key with cascade delete
+	ProviderID      uint   `gorm:"not null"`
 	RegionCode      string `gorm:"not null"`
 	SKUCode         string `gorm:"unique"`
 	ArmSkuName      string `gorm:"column:arm_sku_name"`

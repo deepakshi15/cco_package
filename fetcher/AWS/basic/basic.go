@@ -2,13 +2,14 @@ package basic
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"strconv"
+
 	"gorm.io/gorm"
 	"cco-package/fetcher/AWS/models"
 	"cco-package/fetcher/AWS/utils"
 	"cco-package/fetcher/AWS/convertData"
-	"fmt"
 )
 
 func ProcessCurrentVersionFile(db *gorm.DB, filepath string, regionID uint) error {
@@ -63,6 +64,13 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) erro
 	}
 	fmt.Printf("Fetched regionCode: %s\n", regionCode)
 
+	// Fetch the Provider ID for AWS
+	var providerID uint
+	if err := db.Table("providers").Select("provider_id").Where("provider_name = ?", "AWS").Scan(&providerID).Error; err != nil || providerID == 0 {
+		return fmt.Errorf("failed to fetch provider ID for AWS: %v", err)
+	}
+	fmt.Printf("Fetched ProviderID: %d\n", providerID)
+
 	for _, product := range products {
 		// Check and parse VCPU, default to 0 if missing
 		vcpu, err := strconv.Atoi(utils.DefaultIfEmpty(product.Attributes["vcpu"], "0"))
@@ -72,7 +80,7 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) erro
 		if product.ProductFamily == "Compute Instance" || product.ProductFamily == "Compute Instance (bare metal)" {
 			product.ProductFamily = "Compute"
 		}
-		
+
 		var networkData = product.Attributes["networkPerformance"]
 		networkData = convertData.ConvertNetwork(networkData)
 
@@ -86,6 +94,7 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) erro
 		sku := models.SKU{
 			SKUCode:         product.SKU,
 			RegionID:        regionID,
+			ProviderID:      providerID, // Added Provider ID
 			RegionCode:      regionCode,
 			ArmSkuName:      armSkuName,
 			InstanceSKU:     product.Attributes["instancesku"],

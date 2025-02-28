@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"cco-package/fetcher/AWS/basic"
+	
 	"cco-package/fetcher/AWS/models"
 	"cco-package/fetcher/AWS/saving"
 	"cco-package/fetcher/AWS/track"
@@ -15,6 +15,7 @@ import (
 	"cco-package/fetcher/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"cco-package/fetcher/AWS/basic"
 )
 
 func RunAWS() error {
@@ -25,7 +26,7 @@ func RunAWS() error {
 		return fmt.Errorf("failed to connect to the database: %v", err)
 	}
 
-	// Step 2: Auto-Migrate the Tables (Including SavingPlan)
+	// Step 2: Auto-Migrate thae Tables (Including SavingPlan)
 	err = config.DB.AutoMigrate(&models.Provider{}, &models.Region{}, &models.SKU{}, &models.Price{}, &models.Term{}, &models.SavingPlan{})
 	if err != nil {
 		return fmt.Errorf("failed to auto-migrate tables: %v", err)
@@ -143,6 +144,7 @@ func RunAWS() error {
 		}
 
 		// Process the Basic Plan current version file
+		
 		err = basic.ProcessCurrentVersionFile(config.DB, currentVersionFile, regionEntry.RegionID)
 		if err != nil {
 			return fmt.Errorf("failed to process current version file: %v", err)

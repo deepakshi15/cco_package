@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"os"
 	"strconv"
-
 	"gorm.io/gorm"
 	"cco-package/fetcher/AWS/models"
 	"cco-package/fetcher/AWS/utils"
@@ -58,6 +57,12 @@ func mapToSlice(productsMap map[string]models.Product) []models.Product {
 
 // Function to process and insert products (SKUs) into the DB
 func processProducts(db *gorm.DB, products []models.Product, regionID uint) error {
+	var regionCode string
+	if err := db.Table("regions").Select("region_code").Where("region_id = ?", regionID).Scan(&regionCode).Error; err != nil || regionCode == "" {
+		return fmt.Errorf("failed to fetch region_code for regionID %d: %v", regionID, err)
+	}
+	fmt.Printf("Fetched regionCode: %s\n", regionCode)
+
 	for _, product := range products {
 		// Check and parse VCPU, default to 0 if missing
 		vcpu, err := strconv.Atoi(utils.DefaultIfEmpty(product.Attributes["vcpu"], "0"))
@@ -81,6 +86,7 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) erro
 		sku := models.SKU{
 			SKUCode:         product.SKU,
 			RegionID:        regionID,
+			RegionCode:      regionCode,
 			ArmSkuName:      armSkuName,
 			InstanceSKU:     product.Attributes["instancesku"],
 			ProductFamily:   product.ProductFamily,
@@ -118,7 +124,7 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) e
 
 				// Create a term entry in Price
 				termEntry := models.Price{
-					SKU_ID:        skuID, // Ensure the type matches (uint)
+					SKU_ID:        skuID,
 					EffectiveDate: termDetails.EffectiveDate,
 					Unit:          priceDetails.Unit,
 					PricePerUnit:  pricePerUnit,

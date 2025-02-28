@@ -1,0 +1,13 @@
+PREFIX: 2025/02/28 17:21:06 main.go:95: Cron job started, will run every minute.
+2025/02/28 17:22:06 Task started at: 2025-02-28 17:22:06.0006795 +0530 IST m=+59.376316401
+PREFIX: 2025/02/28 17:22:06 fetcher.go:28: Starting Fetcher
+2025/02/28 17:22:20 Processing region: ap-southeast-7
+2025/02/28 17:23:06 Task started at: 2025-02-28 17:23:06.001172 +0530 IST m=+119.376808901
+PREFIX: 2025/02/28 17:23:06 fetcher.go:28: Starting Fetcher
+2025/02/28 17:23:06 Processing region: us-east-1-scl-1
+2025/02/28 17:23:10 Successfully deleted file: price-list\us-east-1-scl-1.json
+2025/02/28 17:23:18 Successfully deleted saving version file: price-list\us-east-1-scl-1.json
+2025/02/28 17:23:18 Processing region: eu-central-1-wl1-ber1
+2025/02/28 17:23:19 Successfully deleted file: price-list\eu-central-1-wl1-ber1.json
+2025/02/28 17:23:21 Successfully deleted saving version file: price-list\eu-central-1-wl1-ber1.json
+2025/02/28 17:23:21 Processing region: eu-west-1

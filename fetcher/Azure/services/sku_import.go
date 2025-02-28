@@ -124,6 +124,7 @@ func ImportSkuData() error {
 
 			sku := models.SKU{
 				RegionID:        region.RegionID,
+				RegionCode:      region.RegionCode, // Include RegionCode
 				ArmSkuName:      armSkuName,
 				Name:            name,
 				Type:            skuType,

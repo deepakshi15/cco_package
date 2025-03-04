@@ -81,32 +81,40 @@ func processProducts(db *gorm.DB, products []models.Product, regionID uint) erro
 			product.ProductFamily = "Compute"
 		}
 
-		var networkData = product.Attributes["networkPerformance"]
-		networkData = convertData.ConvertNetwork(networkData)
+		// Convert and normalize fields
+		networkData := convertData.ConvertNetwork(product.Attributes["networkPerformance"])
+		memoryData := convertData.ConvertMemory(product.Attributes["memory"])
 
-		var memoryData = product.Attributes["memory"]
-		memoryData = convertData.ConvertMemory(memoryData)
-
-		// Extract ArmSkuName and allow it to be empty
+		// Extract additional attributes
 		armSkuName := product.Attributes["armSkuName"]
+		physicalProcessor := product.Attributes["physicalProcessor"]
+		maxThroughput := product.Attributes["dedicatedEbsThroughput"]
+		enhancedNetworking := product.Attributes["enhancedNetworkingSupported"]
+		gpu := product.Attributes["gpuMemory"]
+		maxIOPS := product.Attributes["maxIopsvolume"]
 
 		// Create SKU record
 		sku := models.SKU{
-			SKUCode:         product.SKU,
-			RegionID:        regionID,
-			ProviderID:      providerID, // Added Provider ID
-			RegionCode:      regionCode,
-			ArmSkuName:      armSkuName,
-			InstanceSKU:     product.Attributes["instancesku"],
-			ProductFamily:   product.ProductFamily,
-			VCPU:            vcpu,
-			Type:            product.Attributes["usagetype"],
-			OperatingSystem: product.Attributes["operatingSystem"],
-			InstanceType:    product.Attributes["instanceType"],
-			Storage:         product.Attributes["storage"],
-			Network:         networkData,
-			CpuArchitecture: product.Attributes["processorArchitecture"],
-			Memory:          memoryData,
+			SKUCode:             product.SKU,
+			RegionID:            regionID,
+			ProviderID:          providerID,
+			RegionCode:          regionCode,
+			ArmSkuName:          armSkuName,
+			InstanceSKU:         product.Attributes["instancesku"],
+			ProductFamily:       product.ProductFamily,
+			VCPU:                vcpu,
+			Type:                product.Attributes["usagetype"],
+			OperatingSystem:     product.Attributes["operatingSystem"],
+			InstanceType:        product.Attributes["instanceType"],
+			Storage:             product.Attributes["storage"],
+			Network:             networkData,
+			CpuArchitecture:     product.Attributes["processorArchitecture"],
+			Memory:              memoryData,
+			PhysicalProcessor:   physicalProcessor,
+			MaxThroughput:       maxThroughput,
+			EnhancedNetworking:  enhancedNetworking,
+			GPU:                 gpu,
+			MaxIOPS:             maxIOPS,
 		}
 
 		// Insert SKU (check if it exists, create if not)

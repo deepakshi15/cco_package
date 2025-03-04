@@ -101,6 +101,7 @@ func ImportSkuData() error {
 
 			var vCPUs int
 			var memoryGB, cpuArchitectureType, maxNetworkInterfaces string
+			var physicalProcessor, maxThroughput, enhancedNetworking, gpu, maxIOPS string
 
 			capabilities, ok := matchedSku["capabilities"].([]interface{})
 			if ok {
@@ -118,6 +119,16 @@ func ImportSkuData() error {
 						cpuArchitectureType, _ = safeString(capability["value"])
 					case "MaxNetworkInterfaces":
 						maxNetworkInterfaces, _ = safeString(capability["value"])
+					case "PhysicalProcessor":
+						physicalProcessor, _ = safeString(capability["value"])
+					case "MaxEbsThroughput":
+						maxThroughput, _ = safeString(capability["value"])
+					case "EnhancedNetworkingSupported":
+						enhancedNetworking, _ = safeString(capability["value"])
+					case "GpuMemory":
+						gpu, _ = safeString(capability["value"])
+					case "MaxIOPS":
+						maxIOPS, _ = safeString(capability["value"])
 					}
 				}
 			}
@@ -129,18 +140,23 @@ func ImportSkuData() error {
 			}
 
 			sku := models.SKU{
-				RegionID:        region.RegionID,
-				ProviderID:      providerID,
-				RegionCode:      region.RegionCode,
-				ArmSkuName:      armSkuName,
-				Name:            name,
-				Type:            skuType,
-				SKUCode:         skuID,
-				ProductFamily:   size,
-				VCPU:            vCPUs,
-				Memory:          memoryGB,
-				CpuArchitecture: cpuArchitectureType,
-				Network:         maxNetworkInterfaces,
+				RegionID:            region.RegionID,
+				ProviderID:          providerID,
+				RegionCode:          region.RegionCode,
+				ArmSkuName:          armSkuName,
+				Name:                name,
+				Type:                skuType,
+				SKUCode:             skuID,
+				ProductFamily:       size,
+				VCPU:                vCPUs,
+				Memory:              memoryGB,
+				CpuArchitecture:     cpuArchitectureType,
+				Network:             maxNetworkInterfaces,
+				PhysicalProcessor:   physicalProcessor,
+				MaxThroughput:       maxThroughput,
+				EnhancedNetworking:  enhancedNetworking,
+				GPU:                 gpu,
+				MaxIOPS:             maxIOPS,
 			}
 
 			result := config.DB.Create(&sku)

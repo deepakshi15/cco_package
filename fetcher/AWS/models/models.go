@@ -44,6 +44,11 @@ type SKU struct {
 	OperatingSystem string
 	Type 		    string 
 	Memory          string
+	PhysicalProcessor          string `gorm:"column:physical_processor"` // "physicalProcessor"
+	MaxThroughput              string `gorm:"column:max_throughput"`     // "dedicatedEbsThroughput"
+	EnhancedNetworking         string `gorm:"column:enhanced_networking"` // "enhancedNetworkingSupported"
+	GPU                        string `gorm:"column:gpu"` // "gpuMemory"
+	MaxIOPS                    string `gorm:"column:max_iops"` // "maxIopsvolume"
 	CreatedDate  time.Time `gorm:"default:current_timestamp"`
 	ModifiedDate time.Time `gorm:"default:current_timestamp"`
 	DisableFlag  bool      `gorm:"default:false"`

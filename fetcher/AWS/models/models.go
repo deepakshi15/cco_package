@@ -20,6 +20,7 @@ type Provider struct {
 type Region struct {
 	RegionID   uint   `gorm:"primaryKey"`
 	RegionCode string `gorm:"unique"`
+	RegionName string `gorm:"column:region_name"`
 	ProviderID uint   `gorm:"not null;constraint:OnDelete:CASCADE;"` // Foreign key with cascade delete
 	CreatedDate  time.Time `gorm:"default:current_timestamp"`
 	ModifiedDate time.Time `gorm:"default:current_timestamp"`
@@ -33,7 +34,6 @@ type SKU struct {
 	RegionCode      string `gorm:"not null"`
 	SKUCode         string `gorm:"unique"`
 	ArmSkuName      string `gorm:"column:arm_sku_name"`
-	Name            string
 	InstanceSKU     string
 	ProductFamily   string
 	VCPU            int

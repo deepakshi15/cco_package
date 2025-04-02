@@ -1,12 +1,11 @@
 package services
 
 import (
-	"cco-package/fetcher/config"
 	"cco-package/fetcher/Azure/models"
 	"cco-package/fetcher/Azure/utils"
+	"cco-package/fetcher/config"
 	"fmt"
 	"log"
-	"strings"
 	"time"
 )
 
@@ -30,26 +29,23 @@ func ImportPricesData() error {
 
 		// Iterate over each price item
 		for _, priceItemInterface := range priceItems {
-			priceItem := priceItemInterface.(map[string]interface{})
+			priceItem, ok := priceItemInterface.(map[string]interface{})
+			if !ok {
+				log.Println("Skipping invalid price item format")
+				continue
+			}
 
 			// Extract required fields from the API response
 			skuID, _ := priceItem["skuId"].(string)
-			retailPrice, _ := priceItem["retailPrice"].(float64)
+			pricePerUnit, _ := priceItem["retailPrice"].(float64) // Renamed to match DB schema
 			unitOfMeasure, _ := priceItem["unitOfMeasure"].(string)
 			effectiveStartDate, _ := priceItem["effectiveStartDate"].(string)
 
-			// Extract only the unit from "1 Hour", "1 Minute", etc.
-			unitParts := strings.Fields(unitOfMeasure)
-			unit := ""
-			if len(unitParts) > 1 {
-				unit = unitParts[1] // Fetch "Hour", "Minute", etc.
-			}
-
-			// Find the corresponding SKU in the database
+			// Find the corresponding SKU in the database using SKU Code (not ID)
 			sku := models.SKU{}
-			if err := config.DB.Where("id = ?", skuID).First(&sku).Error; err != nil {
-    			log.Printf("SKU not found for skuId: %s, skipping...", skuID)
-    			continue
+			if err := config.DB.Where("sku_code = ?", skuID).First(&sku).Error; err != nil {
+				log.Printf("SKU not found for skuId: %s, skipping...", skuID)
+				continue
 			}
 
 			// Parse the effective start date
@@ -61,10 +57,13 @@ func ImportPricesData() error {
 
 			// Create a new Price entry
 			price := models.Price{
-				SkuID:         sku.ID,  // Directly assign sku.ID (of type uint)
-				PricePerUnit:  retailPrice,
-				Unit:          unit,
-				EffectiveDate: effectiveDate,
+				SkuID:         sku.ID,         // Foreign key referencing SKU table
+				PricePerUnit:  pricePerUnit,   // Now correctly using "PricePerUnit"
+				Unit:          unitOfMeasure,  // Unit of measurement
+				EffectiveDate: effectiveDate,  // Effective date for the price
+				CreatedDate:     time.Now(),     // Current timestamp for created date
+				ModifiedDate:    time.Now(),     // Current timestamp for modified date
+				DisableFlag:   false,          // Default false
 			}
 
 			// Insert the Price into the database
@@ -72,14 +71,14 @@ func ImportPricesData() error {
 			if result.Error != nil {
 				log.Printf("Error inserting price for skuId: %s, error: %v", skuID, result.Error)
 			} else {
-				continue
+				log.Printf("Price inserted successfully for skuId: %s with price per unit: %.6f", skuID, pricePerUnit)
 			}
 		}
 
 		// Check for the next page using the NextPageLink field
 		nextPageLink, exists := priceData["NextPageLink"].(string)
 		if !exists || nextPageLink == "" {
-			log.Println("Azure : All pages fetched successfully.")
+			log.Println("All pages fetched successfully.")
 			break
 		}
 
@@ -87,6 +86,6 @@ func ImportPricesData() error {
 		priceApiUrl = nextPageLink
 	}
 
-	log.Println("Azure : Prices data import completed successfully.")
+	log.Println("Prices data import completed successfully.")
 	return nil
 }

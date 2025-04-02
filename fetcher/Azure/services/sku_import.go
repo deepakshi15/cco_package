@@ -43,7 +43,7 @@ func ImportSkuData() error {
 		return fmt.Errorf("invalid format for SKU items")
 	}
 
-	// Fetch the Provider ID for Azure
+	// Fetch Provider ID for Azure
 	var providerID uint
 	if err := config.DB.Table("providers").Select("provider_id").Where("provider_name = ?", "Azure").Scan(&providerID).Error; err != nil || providerID == 0 {
 		return fmt.Errorf("failed to fetch provider ID for Azure: %v", err)
@@ -78,6 +78,7 @@ func ImportSkuData() error {
 			skuType, _ := safeString(priceItem["type"])
 			regionName, _ := safeString(priceItem["armRegionName"])
 
+			// Match SKU from SKU API
 			var matchedSku map[string]interface{}
 			for _, skuItemInterface := range skuItems {
 				skuItem, ok := skuItemInterface.(map[string]interface{})
@@ -96,15 +97,14 @@ func ImportSkuData() error {
 				continue
 			}
 
-			name, _ := safeString(matchedSku["name"])
-			size, _ := safeString(matchedSku["size"])
+			instanceType, _ := safeString(matchedSku["name"])
 
 			var vCPUs int
 			var memoryGB, cpuArchitectureType, maxNetworkInterfaces string
-			var physicalProcessor, maxThroughput, enhancedNetworking, gpu, maxIOPS string
+			var physicalProcessor, maxThroughput, enhancedNetworking, gpu, maxIOPS, serviceFamily string
 
-			capabilities, ok := matchedSku["capabilities"].([]interface{})
-			if ok {
+			// Extract capabilities
+			if capabilities, ok := matchedSku["capabilities"].([]interface{}); ok {
 				for _, capabilityInterface := range capabilities {
 					capability, ok := capabilityInterface.(map[string]interface{})
 					if !ok {
@@ -133,10 +133,19 @@ func ImportSkuData() error {
 				}
 			}
 
+			// Lookup Region by armRegionName stored as RegionName, insert if missing
 			region := models.Region{}
-			if err := config.DB.Where("region_code = ?", regionName).First(&region).Error; err != nil {
-				log.Printf("Error finding region: %v (region: %s)", err, regionName)
-				continue
+			if err := config.DB.Where("region_name = ?", regionName).First(&region).Error; err != nil {
+				log.Printf("Region not found, inserting new region: %s", regionName)
+				newRegion := models.Region{
+					RegionName: regionName,
+					ProviderID: providerID,
+				}
+				if err := config.DB.Create(&newRegion).Error; err != nil {
+					log.Printf("Error inserting region: %v", err)
+					continue
+				}
+				region = newRegion
 			}
 
 			sku := models.SKU{
@@ -144,10 +153,10 @@ func ImportSkuData() error {
 				ProviderID:          providerID,
 				RegionCode:          region.RegionCode,
 				ArmSkuName:          armSkuName,
-				Name:                name,
+				InstanceType:        instanceType, // Correct assignment
 				Type:                skuType,
 				SKUCode:             skuID,
-				ProductFamily:       size,
+				ProductFamily:       serviceFamily,
 				VCPU:                vCPUs,
 				Memory:              memoryGB,
 				CpuArchitecture:     cpuArchitectureType,
@@ -159,11 +168,12 @@ func ImportSkuData() error {
 				MaxIOPS:             maxIOPS,
 			}
 
-			result := config.DB.Create(&sku)
+			// Use FirstOrCreate to prevent duplicate SKU insertions
+			result := config.DB.Where("sku_code = ?", sku.SKUCode).FirstOrCreate(&sku)
 			if result.Error != nil {
 				log.Printf("Error inserting SKU: %v", result.Error)
 			} else {
-				log.Printf("SKU inserted successfully: %v (armSkuName: %s)", sku.Name, sku.ArmSkuName)
+				log.Printf("SKU inserted or already exists: %v (armSkuName: %s)", sku.InstanceType, sku.ArmSkuName)
 			}
 		}
 

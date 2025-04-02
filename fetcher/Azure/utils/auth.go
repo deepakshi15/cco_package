@@ -23,7 +23,7 @@ func SetLogger(l *log.Logger) {
 
 // LoadEnv loads the .env file from the Azure folder.
 func LoadEnv() {
-	envPath := "fetcher/Azure/.env" // Relative path from project root
+	envPath := ".env" // Relative path from project root
 	if _, err := os.Stat(envPath); os.IsNotExist(err) {
 		log.Printf("Warning: .env file not found at path: %s\n", envPath)
 		return

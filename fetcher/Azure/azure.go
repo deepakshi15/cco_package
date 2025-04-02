@@ -1,9 +1,9 @@
 package Azure
 
 import (
-	"log"
-	"cco-package/fetcher/config"
 	"cco-package/fetcher/Azure/services"
+	"cco-package/fetcher/config"
+	"log"
 )
 
 // RunAzure fetches data from Azure and returns an error if any step fails.
@@ -14,20 +14,14 @@ func RunAzure() error {
 	}
 
 	// Import data from Azure VM API
-	if err := services.ImportData(); err != nil {
-		log.Printf("Error importing Azure VM data: %v", err)
-		return err
-	}
-	log.Println("Azure VM data import completed successfully.")
-
-	// Import terms data
-	if err := services.ImportTermsData(); err != nil {
-		log.Printf("Error importing terms data: %v", err)
-		return err
-	}
+	// if err := services.ImportData(); err != nil {
+	// 	log.Printf("Error importing Azure VM data: %v", err)
+	// 	return err
+	// }
+	// log.Println("Azure VM data import completed successfully.")
 
 	// Uncomment if needed
-	// if err := services.ImportSkuData(); err != nil { 
+	// if err := services.ImportSkuData(); err != nil {
 	// 	log.Printf("Error importing SKU data: %v", err)
 	// 	return err
 	// }
@@ -38,6 +32,12 @@ func RunAzure() error {
 	// 	return err
 	// }
 	// log.Println("Prices data import completed successfully.")
+
+	// Import terms data
+	if err := services.ImportTermsData(); err != nil {
+		log.Printf("Error importing terms data: %v", err)
+		return err
+	}
 
 	return nil // No errors
 }

@@ -1,7 +1,7 @@
 package fetcher
 
 import (
-	"cco-package/fetcher/AWS"
+	//"cco-package/fetcher/AWS"
 	"cco-package/fetcher/Azure"
 	"cco-package/fetcher/config"
 	"log"
@@ -39,12 +39,12 @@ func Fetcher() error {
 
 	errChan := make(chan error, 2) // Buffered channel to collect errors
 
-	go func() {
-		defer wg.Done()
-		if err := AWS.RunAWS(); err != nil {
-			errChan <- err
-		}
-	}()
+	// go func() {
+	// 	defer wg.Done()
+	// 	if err := AWS.RunAWS(); err != nil {
+	// 		errChan <- err
+	// 	}
+	// }()
 
 	go func() {
 		defer wg.Done()

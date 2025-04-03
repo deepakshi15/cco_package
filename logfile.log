@@ -1,0 +1,22 @@
+PREFIX: 2025/04/03 11:23:13 main.go:95: Cron job started, will run every minute.
+2025/04/03 11:24:13 Task started at: 2025-04-03 11:24:13.039433569 +0530 IST m=+59.714138068
+PREFIX: 2025/04/03 11:24:13 fetcher.go:28: Starting Fetcher
+2025/04/03 11:24:13 Error importing Azure VM data: Error inserting provider: ERROR: column "created_date" does not exist (SQLSTATE 42703)
+2025/04/03 11:24:17 Processing region: ap-southeast-5
+2025/04/03 11:25:13 Task started at: 2025-04-03 11:25:13.042374665 +0530 IST m=+119.717079163
+PREFIX: 2025/04/03 11:25:13 fetcher.go:28: Starting Fetcher
+2025/04/03 11:25:13 Processing region: us-east-2
+2025/04/03 11:26:13 Task started at: 2025-04-03 11:26:13.009704326 +0530 IST m=+179.684408834
+PREFIX: 2025/04/03 11:26:13 fetcher.go:28: Starting Fetcher
+2025/04/03 11:26:14 Processing region: eu-north-1
+2025/04/03 11:27:13 Task started at: 2025-04-03 11:27:13.006837292 +0530 IST m=+239.681541804
+PREFIX: 2025/04/03 11:27:13 fetcher.go:28: Starting Fetcher
+2025/04/03 11:27:13 Processing region: eu-west-2-wl1-man1
+2025/04/03 11:27:15 Successfully deleted file: price-list/eu-west-2-wl1-man1.json
+2025/04/03 11:27:16 Fetched regionCode: eu-west-2-wl1-man1
+2025/04/03 11:27:16 Fetched providerID: 1
+2025/04/03 11:27:18 Successfully deleted saving version file: price-list/eu-west-2-wl1-man1.json
+2025/04/03 11:27:18 Processing region: ap-southeast-2
+2025/04/03 11:28:13 Task started at: 2025-04-03 11:28:13.000417813 +0530 IST m=+299.675122352
+PREFIX: 2025/04/03 11:28:13 fetcher.go:28: Starting Fetcher
+2025/04/03 11:28:14 Processing region: me-south-1

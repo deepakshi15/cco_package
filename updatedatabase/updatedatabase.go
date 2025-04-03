@@ -24,17 +24,17 @@ var tables = []string{
 func connectToDatabases() error {
 	var err error
 
-	mainDb, err = gorm.Open(postgres.Open("host=localhost user=postgres password=1234 dbname=main_db port=5432 sslmode=disable"), &gorm.Config{})
+	mainDb, err = gorm.Open(postgres.Open("host=localhost user=postgres password=password dbname=main_db port=5432 sslmode=disable"), &gorm.Config{})
 	if err != nil {
 		return fmt.Errorf("failed to connect to main DB: %w", err)
 	}
 
-	tempDb, err = gorm.Open(postgres.Open("host=localhost user=postgres password=1234 dbname=temp_db port=5432 sslmode=disable"), &gorm.Config{})
+	tempDb, err = gorm.Open(postgres.Open("host=localhost user=postgres password=password dbname=temp_db port=5432 sslmode=disable"), &gorm.Config{})
 	if err != nil {
 		return fmt.Errorf("failed to connect to temp DB: %w", err)
 	}
 
-	backupDb, err = gorm.Open(postgres.Open("host=localhost user=postgres password=1234 dbname=backup_db port=5432 sslmode=disable"), &gorm.Config{})
+	backupDb, err = gorm.Open(postgres.Open("host=localhost user=postgres password=password dbname=backup_db port=5432 sslmode=disable"), &gorm.Config{})
 	if err != nil {
 		return fmt.Errorf("failed to connect to backup DB: %w", err)
 	}

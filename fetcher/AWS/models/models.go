@@ -4,10 +4,10 @@ import (
 	"time"
 )
 
-type RegionState struct {
-    RegionName string `json:"region_name"`
-    State      string `json:"state"`
-}
+	type RegionState struct {
+		RegionName string `json:"region_name"`
+		State      string `json:"state"`
+	}
 
 type Provider struct {
 	ProviderID   uint   `gorm:"primaryKey"`

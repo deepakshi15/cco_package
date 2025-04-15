@@ -1,9 +1,10 @@
 package fetcher
 
 import (
-	//"cco-package/fetcher/AWS"
-	"cco-package/fetcher/Azure"
+	// "cco-package/fetcher/AWS"
+	// "cco-package/fetcher/Azure"
 	"cco-package/fetcher/config"
+	"cco-package/fetcher/GCP"
 	"log"
 	"sync"
 )
@@ -46,12 +47,19 @@ func Fetcher() error {
 	// 	}
 	// }()
 
-	go func() {
+	go func(){
 		defer wg.Done()
-		if err := Azure.RunAzure(); err != nil {
+		if err := GCP.RunGCP(); err != nil {
 			errChan <- err
 		}
 	}()
+
+	// go func() {
+	// 	defer wg.Done()
+	// 	if err := Azure.RunAzure(); err != nil {
+	// 		errChan <- err
+	// 	}
+	// }()
 
 	// Wait for both goroutines to complete.
 	wg.Wait()

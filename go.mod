@@ -2,7 +2,7 @@ module cco-package
 
 go 1.23
 
-toolchain go1.23.6
+toolchain go1.23.8
 
 require (
 	github.com/gin-gonic/gin v1.10.0

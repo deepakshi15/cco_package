@@ -59,6 +59,7 @@ type Price struct {
 	SKU_ID        uint      `gorm:"not null;constraint:OnDelete:CASCADE;"` // Foreign key with cascade delete
 	EffectiveDate string    `gorm:"type:varchar(255)"`
 	Unit          string    `gorm:"type:varchar(50)"`
+	Description string `gorm:"type:varchar(255)"`
 	PricePerUnit  string    `gorm:"type:varchar(50)"`
 	CreatedDate  time.Time `gorm:"default:current_timestamp"`
 	ModifiedDate time.Time `gorm:"default:current_timestamp"`

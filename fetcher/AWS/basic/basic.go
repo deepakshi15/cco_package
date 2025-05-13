@@ -142,6 +142,7 @@ func processTerms(db *gorm.DB, terms map[string]map[string]models.TermDetails) e
 				// Create a term entry in Price
 				termEntry := models.Price{
 					SKU_ID:        skuID,
+					Description :  priceDetails.Description,
 					EffectiveDate: termDetails.EffectiveDate,
 					Unit:          priceDetails.Unit,
 					PricePerUnit:  pricePerUnit,

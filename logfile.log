@@ -1,9 +1,12 @@
-PREFIX: 2025/04/15 13:25:18 main.go:95: Cron job started, will run every minute.
-2025/04/15 13:26:18 Task started at: 2025-04-15 13:26:18.026843755 +0530 IST m=+59.117301288
-PREFIX: 2025/04/15 13:26:18 fetcher.go:29: Starting Fetcher
-2025/04/15 13:27:18 Task started at: 2025-04-15 13:27:18.058652201 +0530 IST m=+119.149109727
-PREFIX: 2025/04/15 13:27:18 fetcher.go:29: Starting Fetcher
-2025/04/15 13:28:18 Task started at: 2025-04-15 13:28:18.072292498 +0530 IST m=+179.162750023
-PREFIX: 2025/04/15 13:28:18 fetcher.go:29: Starting Fetcher
-2025/04/15 13:29:18 Task started at: 2025-04-15 13:29:18.061783059 +0530 IST m=+239.152240600
-PREFIX: 2025/04/15 13:29:18 fetcher.go:29: Starting Fetcher
+PREFIX: 2025/05/13 12:17:26 main.go:95: Cron job started, will run every minute.
+2025/05/13 12:18:26 Task started at: 2025-05-13 12:18:26.000866561 +0530 IST m=+59.138608705
+PREFIX: 2025/05/13 12:18:26 fetcher.go:29: Starting Fetcher
+2025/05/13 12:18:29 Processing region: eu-south-1
+2025/05/13 12:19:26 Task started at: 2025-05-13 12:19:26.000961438 +0530 IST m=+119.138703508
+PREFIX: 2025/05/13 12:19:26 fetcher.go:29: Starting Fetcher
+2025/05/13 12:19:26 Processing region: eu-central-1-wl1-ber1
+2025/05/13 12:19:28 Successfully deleted file: price-list/eu-central-1-wl1-ber1.json
+2025/05/13 12:19:30 Fetched regionCode: eu-central-1-wl1-ber1
+2025/05/13 12:19:30 Fetched providerID: 1
+2025/05/13 12:19:32 Successfully deleted saving version file: price-list/eu-central-1-wl1-ber1.json
+2025/05/13 12:19:32 Processing region: us-gov-west-1
